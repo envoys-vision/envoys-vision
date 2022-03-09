@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/envoys-vision/static/css/main.e61fcce9.css",
-    "main.js": "/envoys-vision/static/js/main.ef48c6fe.js",
+    "main.js": "/envoys-vision/static/js/main.bd7c3674.js",
     "static/media/investingBG.svg": "/envoys-vision/static/media/investingBG.1d73b457811fae6f6a2f2a533d4c377a.svg",
     "static/media/stonksBG.svg": "/envoys-vision/static/media/stonksBG.11b7b901d138e27e4a215e4ce4cd3f47.svg",
     "static/media/backGround.jpg": "/envoys-vision/static/media/backGround.85ea322320d5013034fc.jpg",
@@ -40,10 +40,10 @@
     "static/media/DDDown.svg": "/envoys-vision/static/media/DDDown.7c7dc41dc2d3af16af577b4512f68759.svg",
     "static/media/play-btn.svg": "/envoys-vision/static/media/play-btn.4fd756d450443914d048d6ec725d5026.svg",
     "main.e61fcce9.css.map": "/envoys-vision/static/css/main.e61fcce9.css.map",
-    "main.ef48c6fe.js.map": "/envoys-vision/static/js/main.ef48c6fe.js.map"
+    "main.bd7c3674.js.map": "/envoys-vision/static/js/main.bd7c3674.js.map"
   },
   "entrypoints": [
     "static/css/main.e61fcce9.css",
-    "static/js/main.ef48c6fe.js"
+    "static/js/main.bd7c3674.js"
   ]
 }
