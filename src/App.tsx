@@ -23,7 +23,7 @@ import TradingCalendar from './pages/TradingCalendar/TradingCalendar';
 
 function App() {
   const [showSwiper, setShowSwiper] = React.useState(true)
-  const [values, setValues] = React.useState([])
+  const [values, setValues] = React.useState<any>([])
   const [urlReqs, setUrlReqs] = React.useState([['usd', 'kgs'], ['btc', 'usd'], ['usd', 'kgs'], ['btc', 'usd']])
   const [tokens, settokens] = React.useState([
     'B60Y9G6MUFIB74BR',
@@ -47,11 +47,14 @@ function App() {
   }
 
   function requestGetBtc(el:any){
-          let randToken = tokens[getRandomNum(0,4)]
+    let randToken = tokens[getRandomNum(0, tokens.length)]
+    console.log(randToken);
           axios(`https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=${el[0]}&market=${el[1]}&apikey=${randToken}`)
               .then(res => res.data)
               .then(res => {
-                  try{
+                  console.log(res);
+                  
+                try{
                     let resKeys = Object.keys(res['Time Series (Digital Currency Daily)'])
                     let priceToday = res['Time Series (Digital Currency Daily)'][resKeys[0]]['2b. high (USD)']
                     let priceYesterday = res['Time Series (Digital Currency Daily)'][resKeys[1]]['2b. high (USD)']
@@ -68,7 +71,7 @@ function App() {
         }
 
     function requestGetUsd(el:any){
-      let randToken = tokens[getRandomNum(0,4)]
+      let randToken = tokens[getRandomNum(0, tokens.length)]
           axios(`https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=${el[0]}&to_symbol=${el[1]}&apikey=${randToken}`)
               .then(res => res.data)
               .then(res => {
@@ -82,7 +85,7 @@ function App() {
                       pos: String((parseFloat(priceToday)-parseFloat(priceYesterday))).slice(0, 7)
                   }
                   setValues(val => [...val, newObj])
-                } catch {
+                } catch (error){
                   requestGetUsd(el)
                 }
               })
