@@ -47,12 +47,10 @@ function App() {
   }
 
   function requestGetBtc(el:any){
-    let randToken = tokens[getRandomNum(0, tokens.length)]
-    console.log(randToken);
+          let randToken = tokens[getRandomNum(0, tokens.length)]
           axios(`https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=${el[0]}&market=${el[1]}&apikey=${randToken}`)
               .then(res => res.data)
               .then(res => {
-                  console.log(res);
                   
                 try{
                     let resKeys = Object.keys(res['Time Series (Digital Currency Daily)'])
