@@ -176,19 +176,18 @@ export const HeaderDropDown = styled.div`
 
 export const DropDownLink = styled(HeaderNavText)`
   width: 100%;
-  color: #C0C0C0;
+  color: #045599;
   transition: .1s;
   margin: 10px 0;
   font-size: 14px;
   font-weight: normal;
   :hover{
-    color: #045599;
     font-weight: 500;
   }
 `
 
 export const HeaderChangeLang = styled.button`
-outline: none;
+  outline: none;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;

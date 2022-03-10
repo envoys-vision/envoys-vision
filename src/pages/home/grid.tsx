@@ -326,7 +326,7 @@ const Grid = () => {
                            <OrangeEllipse src={changes}/>
                        </div>
                             </Flex>
-                            <EventDetalis>
+                            {/* <EventDetalis>
                                 <EventLink to='#'>NXP Semiconductors N.V.</EventLink>
                                 <EventDate>01/31/2022</EventDate>
                             </EventDetalis>
@@ -337,14 +337,16 @@ const Grid = () => {
                             <EventDetalis>
                                 <EventLink to='#'>L3Harris Technologies, Inc.</EventLink>
                                 <EventDate>01/31/2022</EventDate>
-                            </EventDetalis>
+                            </EventDetalis> */}
                     </Events>
                     </GridItem2>
                     <GridItem2>
                         <Events>
                             <Flex margin={'0 0 40px 0 '} justify={"space-between"}>
                                 <div>
-                                    <EventTitle>{t("dividends")}</EventTitle>
+                                    {/* <EventTitle>{t("dividends")}</EventTitle> */}
+                                    <EventTitle>Дивиденды</EventTitle>
+
                                     <EventQuantity>120 {t("event.eventCount")}</EventQuantity>
                                 </div>
                                 <div>
@@ -352,7 +354,7 @@ const Grid = () => {
                                     <OrangeEllipse src={handCoin}/>
                                 </div>
                             </Flex>
-                            <EventDetalis>
+                            {/* <EventDetalis>
                                 <EventLink to='#'>The AES Corporation</EventLink>
                                 <EventDate>01/31/2022</EventDate>
                             </EventDetalis>
@@ -363,7 +365,7 @@ const Grid = () => {
                             <EventDetalis>
                                 <EventLink to='#'>Ames National Corporation</EventLink>
                                 <EventDate>01/31/2022</EventDate>
-                            </EventDetalis>
+                            </EventDetalis> */}
                         </Events>
                     </GridItem2>
                     <GridItem2>
@@ -378,7 +380,7 @@ const Grid = () => {
                                     <OrangeEllipse src={funds}/>
                                 </div>
                             </Flex>
-                            <EventDetalis>
+                            {/* <EventDetalis>
                                 <EventLink to='#'>Angel Gold Corp</EventLink>
                                 <EventDate>01/31/2022</EventDate>
                             </EventDetalis>
@@ -389,26 +391,24 @@ const Grid = () => {
                             <EventDetalis>
                                 <EventLink to='#'>SMART Global Holdings, Inc.</EventLink>
                                 <EventDate>01/31/2022</EventDate>
-                            </EventDetalis>
+                            </EventDetalis> */}
 
                         </Events>
                     </GridItem2>
                 </Container>
             </Grids>
-            <Grids>
+            {/* <Grids>
                 <Container>
                     <GridItem3>
                         <Title2>{t("event.dollarActive")}</Title2>
                        <Flex justify={"space-between"}>
                            <ActiveDollar>
                                <ActiveName>Envoys-100</ActiveName>
-                               {/*//прайс*/}
                                <ActiveValue>14438.4</ActiveValue>
                                <Income>+408.06 +2.75%</Income>
                            </ActiveDollar>
                            <ActiveDollar>
                                <ActiveName>Envoys-100</ActiveName>
-                               {/*//прайс*/}
                                <ActiveValue>14438.4</ActiveValue>
                                <Income>+408.06 +2.75%</Income>
                            </ActiveDollar>
@@ -418,13 +418,11 @@ const Grid = () => {
                         <Flex justify={"space-between"}>
                             <ActiveDollar>
                                 <ActiveName>Envoys-100</ActiveName>
-                                {/*//прайс*/}
                                 <ActiveValue>14438.4</ActiveValue>
                                 <Income>+408.06 +2.75%</Income>
                             </ActiveDollar>
                             <ActiveDollar>
                                 <ActiveName>Envoys-100</ActiveName>
-                                {/*//прайс*/}
                                 <ActiveValue>14438.4</ActiveValue>
                                 <Income>+408.06 +2.75%</Income>
                             </ActiveDollar>
@@ -434,20 +432,18 @@ const Grid = () => {
                         <Flex justify={"space-between"}>
                             <ActiveDollar>
                                 <ActiveName>Envoys-100</ActiveName>
-                                {/*//прайс*/}
                                 <ActiveValue>14438.4</ActiveValue>
                                 <Income>+408.06 +2.75%</Income>
                             </ActiveDollar>
                             <ActiveDollar>
                                 <ActiveName>Envoys-100</ActiveName>
-                                {/*//прайс*/}
                                 <ActiveValue>14438.4</ActiveValue>
                                 <Income>+408.06 +2.75%</Income>
                             </ActiveDollar>
                         </Flex>
                     </GridItem3>
                 </Container>
-            </Grids>
+            </Grids> */}
         </>
     );
 };

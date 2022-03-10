@@ -13,8 +13,10 @@ type Props = {
 
 const SideBarAbout:React.FC<Props> = (props) => {
     const [links, setLinks] = React.useState([
+        'Участники',
         'Внутренние документы биржи',
-        'Законодательство КР'
+        'Законодательство КР',
+        'Раскрытия информации'
     ])
     const [sideBarClickIcon, setSideBarClickIcon] = React.useState(false)
     const navigate = useNavigate() 
@@ -24,13 +26,13 @@ const SideBarAbout:React.FC<Props> = (props) => {
     <SideBarWrap>
         <SideBarFlex direction='column' align='flex-start' click={ sideBarClickIcon}>
             <SideBarTitle>
-                ПРАВИЛА
+                {/* ПРАВИЛА */}
                 <SideBarBtn onClick={() => setSideBarClickIcon(val => !val)}>
                         <img src={icon} alt="" />
                     </SideBarBtn>
             </SideBarTitle>
             {links.map((el, index) => {
-                    if(el === props.activeText){
+                    if(el === props.activeText ){
                         return <SideBarLinkActive key={index} onClick={(e) => {
                             props.changeLP(el)
                             setSideBarClickIcon(false)

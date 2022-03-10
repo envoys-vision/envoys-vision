@@ -320,8 +320,10 @@ const Premarket : FC = () => {
             <CompositeIndexBlock>
                 <CompositeIndexBox>
                     <IndexText>Envoys {t("home.index")}</IndexText>
-                    <IndexText>13 768.92 <NegativeNumber>-385.10</NegativeNumber> -2.72%</IndexText>
-                    <IndexText>{t("premarket.volume")}:5,746,186,301</IndexText>
+                    <IndexText>0
+                      {/* <NegativeNumber>0</NegativeNumber> 0 */}
+                      </IndexText>
+                    <IndexText>{t("premarket.volume")}:0</IndexText>
                 </CompositeIndexBox>
             </CompositeIndexBlock>
       <ChartBlock>
@@ -352,13 +354,13 @@ const Premarket : FC = () => {
             <ChartValues>
                 <ChartValue>
                     <span>Envoys-100</span>
-                    <span style={{margin: '15px 0'}}>14438.4</span>
-                    <NegativeNumber>-408.06 -2.75%</NegativeNumber>
+                    <span style={{margin: '15px 0'}}>0</span>
+                    <NegativeNumber>0</NegativeNumber>
                 </ChartValue>
                 <ChartValue>
                     <span>Envoys-100</span>
-                    <span style={{margin: '15px 0'}}>14438.4</span>
-                    <NegativeNumber>-408.06 -2.75%</NegativeNumber>
+                    <span style={{margin: '15px 0'}}>0</span>
+                    <NegativeNumber>0</NegativeNumber>
                 </ChartValue>
 
             </ChartValues>

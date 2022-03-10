@@ -11,14 +11,28 @@ import DropDownMarkets from "./DropDowns/DropDownMarkets";
 import DropDownListing from "./DropDowns/DropDownListing";
 import {changeLang} from "../../Translater/i18next";
 import DropDownNews from "./DropDowns/DropDownNews";
+import DropDownAbout from "./DropDowns/DropDownAbout";
 
 const HeaderNav:React.FC = () => {
 
-    const [navLinks, setNavLinks] = React.useState(['Рынки', 'Листинг', 'Клиринг', 'Новости и аналитика', 'О нас'])
-    const [navLinksEn, setNavLinksEn] = React.useState(['markets', 'listing', 'clearing', 'news&analytics', 'aboutus'])
+    const [navLinks, setNavLinks] = React.useState([
+        'Рынки', 
+        'Листинг', 
+        // 'Клиринг', 
+        'Новости и аналитика', 
+        'Раскрытия информации',
+        'О нас'])
+    const [navLinksEn, setNavLinksEn] = React.useState([
+        'markets', 
+        'listing', 
+        // 'clearing', 
+        'news&analytics',
+        'disclosure',
+        'aboutus'])
     const [marketClick, setMarketClick] = useState(false)
     const [listingClick, setListingClick] = useState(false)
     const [newsClick, setNewsClick] = useState(false)
+    const [aboutClick, setAboutClick] = useState(false)
 
     const [activeLang, setActiveLang] = useState('Russian')
     const [showLangCh, setShowLangCh] = useState(false)
@@ -67,11 +81,26 @@ const HeaderNav:React.FC = () => {
                             onMouseEnter={() => setNewsClick(true)}
                             onMouseLeave={() => setNewsClick(false)}
                         >
-                            <HeaderNavText>{activeLang=='Russian'?el:navLinksEn[index]}</HeaderNavText>
+                            <HeaderNavText style={{textTransform: 'none'}}>{activeLang=='Russian'?'Новости и аналитика':'News analytics'}</HeaderNavText>
                             {newsClick?<DropDownNews/>:<></>}
                             <HeaderDropDownLogo src={Dd}/>
                         </Flex>
                     }
+                    if(el === 'О нас'){
+                        return <Flex
+                            margin='0 15px'
+                            key={index}
+                            align='center'
+                            style={{position: 'relative'}}
+                            onMouseEnter={() => setAboutClick(true)}
+                            onMouseLeave={() => setAboutClick(false)}
+                        >
+                            <HeaderNavText>{activeLang=='Russian'?el:navLinksEn[index]}</HeaderNavText>
+                            {aboutClick?<DropDownAbout/>:<></>}
+                            <HeaderDropDownLogo src={Dd}/>
+                        </Flex>
+                    }
+                    
 
                     return <HeaderNavLink key={index} to={navLinksEn[index]}> {activeLang=='Russian'?el:navLinksEn[index].replace('&',' ')} </HeaderNavLink>
                 })}

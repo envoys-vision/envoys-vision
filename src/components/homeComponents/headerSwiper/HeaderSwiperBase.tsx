@@ -69,6 +69,10 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
         setLocationText('Earnings Calendar')
     }else if(location.pathname === '/dividendcalendar'){
         setLocationText('Dividend Calendar ')
+    }else if(location.pathname === '/aboutus'){
+        setLocationText('')
+    }else if(location.pathname === '/news&analytics'){
+        setLocationText('Новости')
     // }else if(location.pathname === '/clearing'){
     //     setLocationText('Клириг и Депозитарий ')
     }else{

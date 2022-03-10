@@ -58,33 +58,34 @@ const BannerInfo:React.FC = () => {
 
             <BannerInfoText margin={false}>Envoys {t("home.index")}</BannerInfoText>
             <Flex margin='15px 0 15px 0'>
-                <BannerInfoText margin={false}>13 768.92 </BannerInfoText>
-                <BannerInfoIncrease margin={true}>+385.10</BannerInfoIncrease> 
-                <BannerInfoIncrease  margin={true}>+2.72%</BannerInfoIncrease> 
+                <BannerInfoText margin={false}>0 </BannerInfoText>
+                <BannerInfoIncrease margin={true}>0</BannerInfoIncrease> 
+                <BannerInfoIncrease  margin={true}>0</BannerInfoIncrease> 
             </Flex>
             <Flex margin='15px 0 25px 0'>
                 <BannerInfoText margin={false}>Volume:</BannerInfoText>
-                <BannerInfoText margin={true}>5,746,186,301</BannerInfoText>
+                <BannerInfoText margin={true}>0</BannerInfoText>
             </Flex>
+            <Flex margin='0 0 20px 0'><BannerInfoText margin={false}>В связи с отсутствием листинговых компаний, расчёт индексов не возможен</BannerInfoText></Flex>
 
             <Rechart data={data} color="#53FFD9"/>
 
             <Flex justify='space-between' margin='25px 0 25px 0'>
                 <Flex direction='column' >
                     <BannerInfoText margin={false} mnTop={true}>Envoys-100</BannerInfoText>
-                    <BannerInfoText margin={false} mnTop={true}>14438.4</BannerInfoText>
+                    <BannerInfoText margin={false} mnTop={true}>0</BannerInfoText>
                     <Flex margin='15px 0 15px 0'>
-                        <BannerInfoIncrease  margin={false}>+408.06</BannerInfoIncrease> 
-                        <BannerInfoIncrease  margin={true}>+2.75%</BannerInfoIncrease> 
+                        <BannerInfoIncrease  margin={false}>0</BannerInfoIncrease> 
+                        <BannerInfoIncrease  margin={true}>0</BannerInfoIncrease> 
                     </Flex>
                 </Flex>
     
                 <Flex direction='column'>
                     <BannerInfoText margin={false} mnTop={true}>Dow Industrials</BannerInfoText>
-                    <BannerInfoText margin={false} mnTop={true}>34265.27</BannerInfoText>
+                    <BannerInfoText margin={false} mnTop={true}>0</BannerInfoText>
                     <Flex margin='15px 0 15px 0'>
-                        <BannerInfoIncrease  margin={false}>+450.02</BannerInfoIncrease> 
-                        <BannerInfoIncrease  margin={true}>+1.3%</BannerInfoIncrease> 
+                        <BannerInfoIncrease  margin={false}>0</BannerInfoIncrease> 
+                        <BannerInfoIncrease  margin={true}>0</BannerInfoIncrease> 
                     </Flex>
                 </Flex>
             </Flex>

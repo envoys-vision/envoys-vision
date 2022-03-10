@@ -16,8 +16,20 @@ type Props = {
 
 const Burger:React.FC<Props> = (props) => {
 
-    const [navLinks, setNavLinks] = React.useState(['Рынки', 'Листинг', 'Клиринг', 'Новости и аналитика', 'О нас'])
-    const [navLinksEn, setNavLinksEn] = React.useState(['markets', 'listing', 'clearing', 'news&analytics', 'aboutus'])
+    const [navLinks, setNavLinks] = React.useState([
+        'Рынки', 
+        'Листинг', 
+        // 'Клиринг', 
+        'Новости и аналитика', 
+        'Раскрытие информации',
+        'О нас'])
+    const [navLinksEn, setNavLinksEn] = React.useState([
+        'markets', 
+        'listing', 
+        // 'clearing', 
+        'news&analytics',
+        'disclosure', 
+        'aboutus'])
     const [listingClick, setListingClick] = React.useState(false)
     const [activeLang, setActiveLang] = React.useState('Russian')
     const [showLangCh, setShowLangCh] = React.useState(false)

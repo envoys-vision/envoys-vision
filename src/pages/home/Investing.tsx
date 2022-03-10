@@ -200,7 +200,7 @@ const Investing: FC = () => {
                 <Container>
                     <Desc>
                         <DescText>{t("investing.subtitle")}What is an investor to do when the market is volatile? In short: Breathe, don't panic, and stay educated. Here are primers for you to stay smart during volatile trading periods.</DescText>
-                        <DescLink><LinkText1>{t("investing.goBlock")}</LinkText1><LinkText2>{t("investing.moreInvest")}</LinkText2></DescLink>
+                        {/* <DescLink><LinkText1>{t("investing.goBlock")}</LinkText1><LinkText2>{t("investing.moreInvest")}</LinkText2></DescLink> */}
                     </Desc>
                 </Container>
             </Wrapper>
@@ -213,14 +213,14 @@ const Investing: FC = () => {
                             <ReadMoreBtn>{t("investing.readMore")}</ReadMoreBtn>
                         </TextBlock>
                     </HowInvest>
-                    <Stonks>
+                    {/* <Stonks>
                         <img src={stonks} alt=""/>
                         <TextBlock left={'60px'} top={'60px'}>
                             <HowInvestBtn>{t("investing.stock")}</HowInvestBtn>
                             <HowInvestDesc fontSize={'24px'} style={{maxWidth: '250px'}}>{t("investing.bayStock")}</HowInvestDesc>
                             <ReadMoreBtn>{t("investing.readMore")}</ReadMoreBtn>
                         </TextBlock>
-                    </Stonks>
+                    </Stonks> */}
                 </FlexBlock>
 
             </Container>
