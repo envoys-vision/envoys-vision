@@ -33,15 +33,12 @@ type Props = {
 }
 
 const NewsPage:React.FC<Props> = (props) => {
-    React.useEffect(() => {
-      console.log(props.name)
-    }, [])
     
   return (
     <Flex direction='column' margin='60px' flex={1}>
-        <NewsTitle>{props.name}</NewsTitle>
+        <NewsTitle>{props.title}</NewsTitle>
         {props.info.map((el:any, index:number) => {
-            if(el.name === props.name){
+            if(el.title === props.title){
                 return <NewsText key={index}>{el.text}</NewsText>
             }
         })}

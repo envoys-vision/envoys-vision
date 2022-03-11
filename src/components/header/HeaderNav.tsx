@@ -20,14 +20,14 @@ const HeaderNav:React.FC = () => {
         'Листинг', 
         // 'Клиринг', 
         'Новости и аналитика', 
-        'Раскрытия информации',
+        // 'Раскрытия информации',
         'О нас'])
     const [navLinksEn, setNavLinksEn] = React.useState([
         'markets', 
         'listing', 
         // 'clearing', 
         'news&analytics',
-        'disclosure',
+        // 'disclosure',
         'aboutus'])
     const [marketClick, setMarketClick] = useState(false)
     const [listingClick, setListingClick] = useState(false)

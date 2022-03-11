@@ -129,12 +129,12 @@ function App() {
         <Route path="/listing" element={<Listing/>}/>
         <Route path="/listing/company" element={<Company/>}/>
         {/* <Route path="/clearing" element={<Clearing/>}/> */}
+        {/* <Route path="/disclosure" element={<DisclosureAll/>}/> */}
         <Route path="/aboutus" element={<AboutUs/>}/>
         <Route path="/news&analytics" element={<News/>}/>
         <Route path="/earningcalendar" element={<EarningC/>}/>
         <Route path="/dividendcalendar" element={<DividendC/>}/>
         <Route path="/tradingcalendar" element={<TradingCalendar/>}/>
-        <Route path="/disclosure" element={<DisclosureAll/>}/>
         <Route path="/admin" element={<Admin/>}/>
       </Routes>
 

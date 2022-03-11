@@ -73,13 +73,15 @@ const NewsSideBar:React.FC<Props> = (props) => {
   return (
     <NewsSideBarWrap >
         {props.info.map((el:any, index:number) => {
+          console.log(el);
+          
             return <NewsBox key={index}>
                     <NewsText>
-                        {el.name}
+                        {el.title}
                     </NewsText>
                     <ViewMoreAndData>
                         <span>{el.date}</span>
-                        <ViewMore onClick={() => props.newsClick(el.name)}>Подробнее <img src={Vector} alt=""/></ViewMore>
+                        <ViewMore onClick={() => props.newsClick(el.title)}>Подробнее <img src={Vector} alt=""/></ViewMore>
                     </ViewMoreAndData>
                 </NewsBox>
         })}
