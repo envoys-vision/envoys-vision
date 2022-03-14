@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Vector from '../../assets/Vector.png'
+import { Flex } from '../../uikit/uikit'
 
 
 const NewsBox = styled.div`
@@ -57,9 +58,9 @@ export const ViewMore = styled.button`
 
 const NewsSideBarWrap = styled.div`
     flex: .5;
+    overflow-y: scroll;
     border-right: 1px solid #DADADA;
     height: 80vh;
-    overflow-y: scroll;
 `
 
 type Props = {
@@ -72,19 +73,19 @@ const NewsSideBar:React.FC<Props> = (props) => {
 
   return (
     <NewsSideBarWrap >
-        {props.info.map((el:any, index:number) => {
-          console.log(el);
-          
-            return <NewsBox key={index}>
-                    <NewsText>
-                        {el.title}
-                    </NewsText>
-                    <ViewMoreAndData>
-                        <span>{el.date}</span>
-                        <ViewMore onClick={() => props.newsClick(el.title)}>Подробнее <img src={Vector} alt=""/></ViewMore>
-                    </ViewMoreAndData>
-                </NewsBox>
-        })}
+        <Flex direction='column-reverse' justify='flex-end'>
+          {props.info.map((el:any, index:number) => {
+              return <NewsBox key={index}>
+                      <NewsText>
+                          {el.title}
+                      </NewsText>
+                      <ViewMoreAndData>
+                          <span>{el.date}</span>
+                          <ViewMore onClick={() => props.newsClick(el.title)}>Подробнее <img src={Vector} alt=""/></ViewMore>
+                      </ViewMoreAndData>
+                  </NewsBox>
+          })}
+        </Flex>
     </NewsSideBarWrap>
   )
 }

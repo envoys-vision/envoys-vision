@@ -11,10 +11,10 @@ import Disclosures from '../Disclosures/Disclosures'
 
 const Listing:React.FC = () => {
   const location = useLocation()
-  const [listingPath, setListingPath] = React.useState('')
+  const [listingPath, setListingPath] = React.useState('Листинг')
 
   function getSideChoose(){
-    if(listingPath === 'Листинг' || location.state== 'Листинг') {
+    if(listingPath === 'Листинг' || location.state == 'Листинг') {
       return <ListingC/>
     }
     if(listingPath === 'Облигации'  || location.state== 'Облигации') {

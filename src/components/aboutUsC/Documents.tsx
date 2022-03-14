@@ -29,7 +29,7 @@ const Documents:React.FC =() => {
 
   ];
   return (
-    <Flex direction='column'>
+    <Flex direction='column'  flex={1} >
       {/* <DocViewer documents={docs}/> */}
         {/* <AboutUsLink href={'./doc/Инструкция о порядке взаиморасчетов по операциям с корпоративными ценными бумагами.docx'} target="_blank" download>Инструкция о порядке взаиморасчетов по операциям с корпоративными ценными бумагами</AboutUsLink>
         <AboutUsLink href={'./doc/О депозитарном обслуживании размещения новой эмиссии ценных бумаг.docx'} target="_blank" download>О депозитарном обслуживании размещения новой эмиссии ценных бумаг</AboutUsLink> */}

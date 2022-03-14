@@ -23,7 +23,7 @@ const AboutUsLink = styled.a`
 
 const RulesKR:React.FC = () => {
   return (
-    <Flex direction='column'>
+    <Flex direction='column'  flex={1} >
         <AboutUsLink target={"_blank"} href='http://cbd.minjust.gov.kg/act/view/ru-ru/1188'> Закон об акционерных обществах</AboutUsLink>   
         <AboutUsLink target={"_blank"} href='http://cbd.minjust.gov.kg/act/view/ru-ru/202677'>Закон о рынке ценных бумаг</AboutUsLink>    
         <AboutUsLink target={"_blank"} href='http://cbd.minjust.gov.kg/act/view/ru-ru/12634'>Положение о предоставлении отчетности</AboutUsLink>    

@@ -11,7 +11,7 @@ import DisclosuresA from '../../components/aboutUsC/DisclosuresA'
 
 
 const AboutUs:React.FC = () => {
-  const [listingPath, setListingPath] = React.useState('Участники')
+  const [listingPath, setListingPath] = React.useState('Внутренние документы биржи')
   
   const loc = useLocation()
 
@@ -19,9 +19,6 @@ const AboutUs:React.FC = () => {
     setListingPath(el)
   }
 
-  React.useEffect(() => {
-    setListingPath(loc.state)
-  }, [loc])
   
 
   function getSideChoose(){

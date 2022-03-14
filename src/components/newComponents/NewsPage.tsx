@@ -12,7 +12,7 @@ const NewsTitle = styled.h1`
     text-transform: uppercase;
     color: #045599;
     max-width: 750px;
-    margin: 0 0 50px  0;
+    margin: 60px 0;
 
 `
 
@@ -35,10 +35,10 @@ type Props = {
 const NewsPage:React.FC<Props> = (props) => {
     
   return (
-    <Flex direction='column' margin='60px' flex={1}>
-        <NewsTitle>{props.title}</NewsTitle>
+    <Flex direction='column' margin='0 60px' flex={1} style={{overflowY: 'scroll', height: '80vh'}}>
+        <NewsTitle>{props.name}</NewsTitle>
         {props.info.map((el:any, index:number) => {
-            if(el.title === props.title){
+            if(el.title === props.name){
                 return <NewsText key={index}>{el.text}</NewsText>
             }
         })}

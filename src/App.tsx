@@ -55,6 +55,7 @@ function App() {
               .then(res => {
                   
                 try{
+
                     let resKeys = Object.keys(res['Time Series (Digital Currency Daily)'])
                     let priceToday = res['Time Series (Digital Currency Daily)'][resKeys[0]]['2b. high (USD)']
                     let priceYesterday = res['Time Series (Digital Currency Daily)'][resKeys[1]]['2b. high (USD)']
@@ -76,6 +77,7 @@ function App() {
               .then(res => res.data)
               .then(res => {
                 try {
+
                   let resKeys = Object.keys(res['Time Series FX (Daily)'])
                   let priceToday = res['Time Series FX (Daily)'][resKeys[0]]['2. high']
                   let priceYesterday = res['Time Series FX (Daily)'][resKeys[1]]['2. high']

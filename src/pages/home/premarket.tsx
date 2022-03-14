@@ -13,9 +13,7 @@ const Wrapper = styled.div`
   display: flex;
   margin-top: 100px ;
   justify-content: center;
-  @media(max-width: 1263px){
-    display: flex;
-    justify-content: space-between;
+  @media(max-width: 765px){
     flex-wrap: wrap;
   }
 `
@@ -30,33 +28,41 @@ const PreMarketHeader = styled.div`
   display: flex;
   justify-content: space-between;   
   border-bottom: 1px solid #DADADA;
-  height: 58px;
-  @media(max-width: 1193px){
-    width: 100vw;
-  }
 `
 // PRM = это сокращение от PreMarket
-const PrmHeaderTitle = styled.h1`
+const PrmHeaderBlock = styled.div`
+  padding: 16px 0 16px 29px;
+  display: flex;
+  align-items: center;
+`
+
+const PrmHeaderTitle = styled.h3`
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 100%;
+  margin-right: 10px;
+  letter-spacing: 0.02em;
+  @media(max-width: 370px){
+    font-size: 24px;
+  }
+`
+const PrmHeaderPreTitle = styled.h3`
+  font-family: 'Exo 2';
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 18px;
-  display: flex;
   letter-spacing: 0.02em;
-  padding: 16px 0 16px 29px;
-  align-items: flex-end;
-  .title{
-    width: 100px;
+  padding: 0 5px;
+  @media(max-width: 370px){
+    font-size: 12px;
   }
 `
 
 const HeaderBtns = styled.div`
  display: flex;
-  @media(max-width: 545px){
-    display: flex;
-    flex-direction: column;
-    height: 100px;
-  }
 `
 
 const HeaderBtn = styled.button`
@@ -69,9 +75,8 @@ const HeaderBtn = styled.button`
     color: white;
     font-weight: bold;
   }
-  @media(max-width: 545px){
-    height: 29px;
-    padding: 0 5px;
+  @media(max-width: 462px){
+    padding: 0 10px;
   }
 `
 
@@ -80,21 +85,6 @@ const CompositeIndexBlock = styled.div`
     margin-top: 22px;
     padding-left: 29px;
    justify-content: space-between;
-  //@media(max-width: 719px){
-  //  display: flex;
-  //  flex-direction: column;
-  //}
-  @media(max-width: 1193px){
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-  }
-  @media(max-width: 619px){
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
 `
 
 const CompositeIndexBox = styled.div`
@@ -108,7 +98,6 @@ const IndexText = styled.h2`
   font-weight: normal;
   font-size: 16px;
   line-height: 18px;
-  /* identical to box height, or 112% */
   margin-bottom: 20px;
   letter-spacing: 0.02em;
   color: #101010;
@@ -122,17 +111,6 @@ const ChartBlock = styled.div`
 display: flex;
   justify-content: space-between;
   padding-left: 29px;
-  @media(max-width: 1193px){
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-  }
-      @media(max-width: 619px){
-        width: 100vw;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-      }
 `
 
 const Chart = styled.div`
@@ -147,18 +125,6 @@ const ChartValues = styled.div`
   margin-top: 41px;
   padding: 29px 29px 118px 29px;
   
-  @media(max-width: 611px){
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;  
-    m
-  }
-  @media(max-width: 1193px){
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-  }
 `
 
 const ChartValue = styled.div`
@@ -191,6 +157,10 @@ const NegativeNumber = styled.span`
 const LastNewsBlock = styled.div`
  max-width: 396px;
   border-left: 1px solid #DADADA;
+  @media(max-width: 765px){
+    width: 100%;
+    margin-right: auto;
+  }
 `
 
 const NewsBox = styled.div`
@@ -209,8 +179,8 @@ const NewsBox = styled.div`
       height: 0;
     }
   }
-  @media(max-width: 1263px){
-   width: 100vw;
+  @media(max-width: 765px){
+    width: 100vw;
   }
 `
 
@@ -308,10 +278,10 @@ const Premarket : FC = () => {
         <Wrapper>
         <PreMarket>
             <PreMarketHeader>
-                <PrmHeaderTitle>
-                  <span style={{fontSize:"28px", lineHeight: '100%', marginRight:'10px'}}> U.S</span>
-                    <span style={{width: 'auto'}} className='title'>{t("premarket.title")}</span>
-                </PrmHeaderTitle>
+                <PrmHeaderBlock>
+                  <PrmHeaderTitle> U.S</PrmHeaderTitle>
+                    <PrmHeaderPreTitle style={{width: 'auto'}} className='title'>{t("premarket.title")}</PrmHeaderPreTitle>
+                </PrmHeaderBlock>
                 <HeaderBtns>
                     <HeaderBtn>U.S</HeaderBtn>
                     <HeaderBtn >{t("premarket.majorIndex")}</HeaderBtn>
@@ -327,8 +297,6 @@ const Premarket : FC = () => {
                 </CompositeIndexBox>
             </CompositeIndexBlock>
       <ChartBlock>
-            {/* <Rechart data={data} color='EB9FA0'/>ё
-            <Rechart data={data} color='53FFD9'/> */}
           
           <Chart>
               <ResponsiveContainer width="100%" height="100%">
@@ -357,11 +325,11 @@ const Premarket : FC = () => {
                     <span style={{margin: '15px 0'}}>0</span>
                     <NegativeNumber>0</NegativeNumber>
                 </ChartValue>
-                <ChartValue>
+                {/* <ChartValue>
                     <span>Envoys-100</span>
                     <span style={{margin: '15px 0'}}>0</span>
                     <NegativeNumber>0</NegativeNumber>
-                </ChartValue>
+                </ChartValue> */}
 
             </ChartValues>
         </PreMarket>

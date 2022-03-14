@@ -15,19 +15,21 @@ const StyledWrap = styled.div`
 `
 
 const News:React.FC = () => {
-  const [info, setInfo] = React.useState([])
+  const [info, setInfo] = React.useState<any>([])
   const [activeNews, setActiveNews] = React.useState()
 
   useEffect(() => {
     axios.get('https://envoys-vision-news-default-rtdb.firebaseio.com/news.json')
     .then(res => {
       let newsData = res.data 
-      // for (let i in newsData){
-        // let newsArr = []
-        // newsArr.push(newsData[i])
-        // setInfo(newsArr)
-      //   setActiveNews
-      // }
+      // console.log(res);
+      
+      let newsArr = [...info]
+      for (let i in newsData){
+        newsArr.push(newsData[i])
+        setInfo(newsArr)
+      }
+      setActiveNews(newsArr[newsArr.length-1].title)
       
     })
   }, [])

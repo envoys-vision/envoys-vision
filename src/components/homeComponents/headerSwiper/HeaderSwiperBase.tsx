@@ -73,6 +73,8 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
         setLocationText('')
     }else if(location.pathname === '/news&analytics'){
         setLocationText('Новости')
+    }else if(location.pathname === '/admin'){
+        setLocationText('Админ-Панель')
     // }else if(location.pathname === '/clearing'){
     //     setLocationText('Клириг и Депозитарий ')
     }else{
@@ -114,6 +116,8 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
                   }>
     
                 {props.swiperValues.map((val, index) => {
+                    // console.log(val);
+                    
                     if(props.swiperValues.length > 0){
                         let posB = true
                         if(val.pos[0] === '-') posB = false
