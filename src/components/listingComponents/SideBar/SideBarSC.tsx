@@ -102,6 +102,12 @@ export const SideBarLink = styled.button`
     cursor: pointer;
     text-align: start;
     margin: 20px 0;
+    transition: .3s;
+    :hover{
+        color: #045599;
+        font-weight: 600;
+        font-size: 20px;
+    }
     @media (max-width: 765px) {
         margin: 10px 0;
         color: #fff;
@@ -110,7 +116,11 @@ export const SideBarLink = styled.button`
 
 export const SideBarLinkActive = styled(SideBarLink)`
     color: #045599;
+    font-weight: 600;
+    font-size: 20px;
     @media (max-width: 765px) {
         color: #fff;
+        font-size: 16px;
+        font-weight: 300;
     }
 `

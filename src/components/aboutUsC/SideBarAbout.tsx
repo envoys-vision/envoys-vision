@@ -16,14 +16,15 @@ const SideBarAbout:React.FC<Props> = (props) => {
         'Участники',
         'Внутренние документы биржи',
         'Законодательство КР',
-        'Раскрытия информации'
+        'Раскрытия информации',
+        'Приложения к листингу'
     ])
     const [sideBarClickIcon, setSideBarClickIcon] = React.useState(false)
     const navigate = useNavigate() 
     const location = useLocation()
 
   return (
-    <SideBarWrap>
+    <SideBarWrap style={{borderRight: '1px solid #DADADA', maxWidth: '300px'}}>
         <SideBarFlex direction='column' align='flex-start' click={ sideBarClickIcon}>
             <SideBarTitle>
                 {/* ПРАВИЛА */}

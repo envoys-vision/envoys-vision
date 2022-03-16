@@ -51,11 +51,12 @@ const AboutParters = () => {
     ])
 
   return (
-    <Flex direction='column'  flex={1}  style={{maxWidth: '100%'}}>
+    <Flex direction='column' margin='20px' flex={1}  style={{maxWidth: '100%'}}>
         <AboutP justify='space-between' align='center'> 
             <AboutPText >название</AboutPText>
             <AboutPText style={{textAlign: 'end'}}>сайт</AboutPText>
         </AboutP>
+        
         <Flex direction='column'>
             {partners.map((el, index) => {
                 return <Flex key={index} margin='20px 0'>

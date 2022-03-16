@@ -1,34 +1,41 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
 import { Flex } from '../../uikit/uikit'
-
-const AboutUsLink = styled.a`
-    text-transform: capitalize;
-    font-family: Exo 2;
-    font-style: normal;
-    font-size: 16px;
-    font-weight: 500;
-    color: #045599;
-    cursor: pointer;
-    -webkit-text-decoration: none;
-    text-decoration: none;
-    transition: .3s;
-    margin: 10px 0;
-    :hover{
-      font-size: 18px;
-    }
-`
+import { AboutUsLink, AboutUsTitle, ContentSideAbout } from './aboutUsSC'
+import ContentHeader from './ContentHeader/ContentHeader'
+import Position from './RulesKR/Position'
+import Rules from './RulesKR/Rules'
 
 
 const RulesKR:React.FC = () => {
-  return (
-    <Flex direction='column'  flex={1} >
-        <AboutUsLink target={"_blank"} href='http://cbd.minjust.gov.kg/act/view/ru-ru/1188'> Закон об акционерных обществах</AboutUsLink>   
-        <AboutUsLink target={"_blank"} href='http://cbd.minjust.gov.kg/act/view/ru-ru/202677'>Закон о рынке ценных бумаг</AboutUsLink>    
-        <AboutUsLink target={"_blank"} href='http://cbd.minjust.gov.kg/act/view/ru-ru/12634'>Положение о предоставлении отчетности</AboutUsLink>    
+  const [headerBtns, setHeaderBtns] = React.useState([
+    'Положения',
+    'Законы'
+  ])
 
-    </Flex>
+  const [active, setActive] = React.useState('Положения')
+
+  function checkBtn(){
+    if(active === 'Положения'){
+      return <Position/>
+    }
+    if(active === 'Законы'){
+      return <Rules/>
+    }
+  }
+
+  return (
+    <ContentSideAbout direction='column'  flex={1} margin='60px 0 0 60px'>
+
+        <AboutUsTitle>Правила</AboutUsTitle>
+
+        <ContentHeader clickBtn={setActive} active={active} headerBtns={headerBtns}/>
+
+        {checkBtn()}
+        {/* <AboutUsLink target={"_blank"} href='http://cbd.minjust.gov.kg/act/view/ru-ru/1188'> Закон об акционерных обществах</AboutUsLink>   
+        <AboutUsLink target={"_blank"} href='http://cbd.minjust.gov.kg/act/view/ru-ru/202677'>Закон о рынке ценных бумаг</AboutUsLink>    
+        <AboutUsLink target={"_blank"} href='http://cbd.minjust.gov.kg/act/view/ru-ru/12634'>Положение о предоставлении отчетности</AboutUsLink>     */}
+
+    </ContentSideAbout>
   )
 }
 

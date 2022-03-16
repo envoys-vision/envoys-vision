@@ -39,7 +39,7 @@ const HeaderNav:React.FC = () => {
 
 
     return (
-        <HeaderMenuNav1 align="center" flex={1} justify='space-between' margin='0 0 0 20px'>
+        <HeaderMenuNav1 align="center" flex={1} justify='space-between' margin='0 0 0 100px'>
             <Flex align='center' justify='space-between' flex={1}>
                 {navLinks.map((el, index) => {
                     if(el === 'Рынки'){

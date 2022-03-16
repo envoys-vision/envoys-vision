@@ -8,13 +8,14 @@ const [aboutList, setAboutList] = React.useState([
     'Участники',
     'Внутренние документы биржи',
     'Законодательство КР',
-    'Раскрытия информации'
+    'Раскрытия информации',
+    'Приложения к листингу'
     ])
   const navigate = useNavigate()
 
   return (
     <HeaderDropDownWrap>
-    <DropDownInside style={{  height: '190px'}}>
+    <DropDownInside style={{  height: '220px'}}>
       <Flex direction='column'>
         {aboutList.map((el, index) => {
           return <DropDownLink

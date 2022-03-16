@@ -21,7 +21,7 @@ type Props = {
 
 const HeaderSwiperBase:React.FC<Props> = (props) => {
     const [locationText, setLocationText] = React.useState('undefined')
-    const [pathLocation, setPathLocation] = React.useState<string[]>(['home'])
+    const [pathLocation, setPathLocation] = React.useState<string[]>(['Home'])
     const [showSwiper, setShowSwiper] = React.useState(false)
     const [prices, setPrices] = React.useState<string[]>([])
 
@@ -50,6 +50,26 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
         if(el[el.length-1] === '/'){
           el = el.slice(0, el.length-1)
         }
+
+        if(el.toLowerCase() === 'aboutus'){
+            el = 'About us'
+        }
+        if(el.toLowerCase() === 'news&analytics'){
+            el = 'News and Analytics'
+        }
+        if(el.toLowerCase() === 'listing'){
+            el = 'listing'
+        }
+        if(el.toLowerCase() === 'dividendcalendar'){
+            el = 'Dividend Calendar'
+        }
+        if(el.toLowerCase() === 'earningcalendar'){
+            el = 'Earning Calendar'
+        }
+        if(el.toLowerCase() === 'newspage'){
+            el = 'News page'
+        }
+
         newPathLoc.push(el)
       })
       setPathLocation(newPathLoc)
@@ -75,6 +95,9 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
         setLocationText('Новости')
     }else if(location.pathname === '/admin'){
         setLocationText('Админ-Панель')
+    }else if(location.pathname === '/newspage'){
+        setLocationText('Что такое инвестирование?')
+    
     // }else if(location.pathname === '/clearing'){
     //     setLocationText('Клириг и Депозитарий ')
     }else{
@@ -116,8 +139,26 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
                   }>
     
                 {props.swiperValues.map((val, index) => {
-                    // console.log(val);
-                    
+                    if(props.swiperValues.length > 0){
+                        let posB = true
+                        if(val.pos[0] === '-') posB = false
+                        return <SwiperSlide  key={index}>
+                            <HeaderSwiperItem>
+                                <Flex align='center'>
+                                    <HeaderSwiperIcon src={posB?incr:decr}/>
+                                    <Flex direction='column'>
+                                        <HeaderSwiperText>{val.name}</HeaderSwiperText>
+                                        <Flex margin='10px 0 0 0'>
+                                            <HeaderSwiperText>{val.value}</HeaderSwiperText>
+                                            {!posB?<BannerInfoDecrease margin={true}>{val.pos}</BannerInfoDecrease>:<BannerInfoIncrease margin={true}>+{val.pos}</BannerInfoIncrease>}
+                                        </Flex>
+                                    </Flex>
+                                </Flex>
+                            </HeaderSwiperItem>
+                        </SwiperSlide>
+                    }
+                })}
+                {props.swiperValues.map((val, index) => {
                     if(props.swiperValues.length > 0){
                         let posB = true
                         if(val.pos[0] === '-') posB = false
@@ -145,7 +186,7 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
                 {pathLocation.map((el, index) => {
                     if(index === pathLocation.length -1){
                         return <HeaderSwiperPath key={index}>
-                        <Link to='#'>{el}</Link>
+                        <Link to='#' style={{textTransform: 'none'}}>{el}</Link>
                     </HeaderSwiperPath>
                     }else{
                         return <Flex  key={index}>

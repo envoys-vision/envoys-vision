@@ -2,12 +2,13 @@ import axios from 'axios'
 import React from 'react'
 import { Container, Flex } from '../../uikit/uikit'
 import { BannerBtn } from '../homeComponents/banner/BannerSC'
-import { FromD, InputD, TextAreaD, TextD } from './AdminSC'
+import { FromD, InputD, AddNewsImg, AddNewsInput, AddNewsInputDate } from './AdminSC'
+import img from '../../assets/adminImg.jpg'
 
 const AddNews:React.FC = () => {
     const [newsTitle, setNewsTitle] = React.useState('')
     const [newsText, setNewsText] = React.useState('')
-    const [newsDate, setNewsDate] = React.useState('')
+    const [newsDate, setNewsDate] = React.useState<any>()
 
     const [error, setError] = React.useState('')
 
@@ -25,6 +26,7 @@ const AddNews:React.FC = () => {
             }
             axios.post('https://envoys-vision-news-default-rtdb.firebaseio.com/news.json/', newsPost)
                 .then(res => {
+                    alert('Новости загружены')
                     setNewsTitle('')
                     setNewsText('')
                     setNewsDate('')
@@ -35,29 +37,32 @@ const AddNews:React.FC = () => {
 
 
   return (
-    <Container>
-            <Flex style={{height: '60vh'}} align='center' justify='center' direction='column'>
+        <Flex justify='space-between' align='center'>
+            <Flex margin='0 30px' align='center' justify='center' direction='column' flex={1}>
                 {error.length>0?<h3 style={{color: 'red'}}>{error}</h3>:<></>}
-                <FromD onSubmit={e => addNews(e)}>
-                    <TextAreaD
+                <FromD onSubmit={e => addNews(e)} style={{width: '100%'}}>
+                    <AddNewsInput
                         value={newsTitle}
-                        placeholder='введите заголовок'
+                        placeholder='Введите заголовок'
                         onChange={e => setNewsTitle(e.target.value)}
                     />
-                    <TextAreaD
+                    <AddNewsInput
                         value={newsText}
-                        placeholder='введите текст'
+                        placeholder='Введите текст'
                         onChange={e => setNewsText(e.target.value)}
-                    ></TextAreaD>
-                    <InputD
+                    ></AddNewsInput>
+                    <AddNewsInputDate
                         value={newsDate}
                         type={'date'}
                         onChange={e => setNewsDate(e.target.value)}
                     />
-                    <BannerBtn onSubmit={e => addNews(e)}>Сохранить</BannerBtn>
+                    {/* <BannerBtn onSubmit={e => addNews(e)}>Сохранить</BannerBtn> */}
                 </FromD>
             </Flex>
-        </Container>
+
+
+            <AddNewsImg src={img}/>
+        </Flex>
   )
 }
 

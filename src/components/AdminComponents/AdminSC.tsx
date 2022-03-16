@@ -16,9 +16,6 @@ export const InputD = styled.input`
         font-family: 'Exo 2';
         font-size: 18px;
     }
-    /* :hover{
-        box
-    } */
 `
 
 export const FromD = styled.form`
@@ -49,3 +46,60 @@ export const TextAreaD = styled.textarea`
         text-align: center;
     }
 ` 
+
+
+export const AddNewsInput = styled.textarea`
+    max-width: 470px;
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 22px;
+    color: #7B797A;
+    border: none;
+    border-bottom: solid 1px #E9E8E8;
+    resize: none;
+    outline: none;
+    margin: 30px 0;
+    transition: .3s;
+    ::placeholder{
+        font-family: 'Exo 2';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: #7B797A;
+    }
+    :focus{
+        border-bottom: solid 4px #045599;
+        max-width: 600px;
+    }
+` 
+
+
+export const AddNewsInputDate = styled.input`
+    font-family: 'Exo 2';
+    max-width: 470px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #1D1D1D;
+    border: none;
+    border-bottom: solid 1px #E9E8E8;
+    resize: none;
+    outline: none;
+    margin: 30px 0;
+    ::placeholder{
+        font-family: 'Exo 2';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: #7B797A;
+    }
+`
+
+export const AddNewsImg = styled.img`
+    flex: 1;
+`

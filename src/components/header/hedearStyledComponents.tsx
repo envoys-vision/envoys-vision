@@ -176,6 +176,7 @@ export const HeaderDropDown = styled.div`
 
 export const DropDownLink = styled(HeaderNavText)`
   width: 100%;
+  text-transform: none;
   color: #045599;
   transition: .1s;
   margin: 10px 0;

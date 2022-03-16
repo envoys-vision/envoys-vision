@@ -5,8 +5,9 @@ import ArrouWhite from '../../assets/white-arrou.svg'
 import investBG from '../../assets/investingBG.svg'
 import readmore from '../../assets/readmore.svg'
 import stonks from '../../assets/stonksBG.svg'
-import { Flex } from '../../uikit/uikit';
+import { Container, Flex } from '../../uikit/uikit';
 import {useTranslation} from "react-i18next";
+import { useNavigate } from 'react-router-dom';
 
 const Wrapper = styled.div`
   border-top: 1px solid #DADADA;
@@ -17,11 +18,9 @@ const Wrapper = styled.div`
   }
 `
 
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  border-right: 1px solid #DADADA;
-  border-left: 1px solid #DADADA;
+const Container1 = styled(Container)`
+padding: 0;
+  border: 1px solid #DADADA;
 `
 
 const Desc = styled.div`
@@ -33,8 +32,8 @@ const Desc = styled.div`
   }
 `
 
-const DescText = styled.div`
-  width: 830px;
+const DescText = styled.p`
+  max-width: 100%;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -94,9 +93,7 @@ const LinkText1 = styled.p`
   }
 `
 const HowInvest = styled.div`
-  max-width: 830px; 
   padding: 30px 30px 107px 30px;
-  border-right: 1px solid #DADADA;
   position: relative;
   @media(max-width: 1180px){
     padding: 0;
@@ -105,8 +102,12 @@ const HowInvest = styled.div`
 `
 
 const InvestBG = styled.img`
+  padding: 10px 0; 
   width: 100%;
-  height: 281px;
+  /* height: 281px; */
+  @media(max-width: 760px){
+    display: none;
+  }
 `
 
 type Props = {
@@ -123,8 +124,15 @@ const TextBlock = styled.div<Props>`
   flex-direction: column;
   align-items: start;
   position: absolute;
-  top: ${(props) => props.top};
-  left: ${(props) => props.left};
+  top: 22%;
+  left: 100px;
+  @media(max-width: 760px){
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 20px 0;
+  }
+
 `
 
 const HowInvestBtn = styled.button`
@@ -138,9 +146,13 @@ const HowInvestBtn = styled.button`
   padding: 6px 14px 8px;
   max-width: 161px;
   border-style: none;
+  @media(max-width: 760px){
+    color: #fff;
+    background: #4478BB;
+  }
 `
 
-const HowInvestDesc = styled.div<Props>`
+const HowInvestDesc = styled.h3<Props>`
   max-width: 357px;
   font-style: normal;
   font-weight: normal;
@@ -148,10 +160,22 @@ const HowInvestDesc = styled.div<Props>`
   line-height: 36px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  /* Белый */
   color: #FFFFFF;
   margin: 20px 0;
   word-wrap: break-word;
+  @media(max-width: 999px){
+    max-width: 400px;
+    line-height: 30px;
+    font-size: 26px;
+  }
+  @media(max-width: 537px){
+    margin: 10px 0;
+    line-height: 26px;
+    font-size: 24px;
+  }
+  @media(max-width: 760px){
+    color: #045599;
+  }
 `
 
 const ReadMoreBtn = styled.button`
@@ -172,6 +196,14 @@ const ReadMoreBtn = styled.button`
     height: 13px;
     top: 27%;
     left: 124px;
+    @media(max-width: 760px){
+      left: 120px;
+      top: 12%;
+      content: '...';
+    }
+  }
+  @media(max-width: 760px){
+    color: #3F3F3F;
   }
 `
 
@@ -179,38 +211,35 @@ const Stonks = styled.div`
   position: relative;
   padding: 30px 30px 0 30px;
 `
-const FlexBlock = styled.div`
-    display: flex;
-    @media(max-width: 1180px){
-      display: flex;
-      flex-direction: column;
-    }
-`
+const FlexBlock = styled.div``
 
 
 
 const Investing: FC = () => {
     const {t} = useTranslation()
+    const nav = useNavigate()
     return (
         <Wrapper>
-            <Container>
-                <Title lineHeight={'36px'} fontSize={'30px'} width={'830px'} padding={'10px 0 10px 30px'}>{t("investing.title")}</Title>
-            </Container>
+            <Container1>
+                <Title lineHeight={'36px'} fontSize={'30px'} padding={'10px 0 10px 30px'}>{t("investing.title")}</Title>
+            </Container1>
             <Wrapper>
-                <Container>
+                <Container1 style={{borderBottom: 'none'}}>
                     <Desc>
-                        <DescText>{t("investing.subtitle")}What is an investor to do when the market is volatile? In short: Breathe, don't panic, and stay educated. Here are primers for you to stay smart during volatile trading periods.</DescText>
+                        <DescText>{t("investing.subtitle")}</DescText>
                         {/* <DescLink><LinkText1>{t("investing.goBlock")}</LinkText1><LinkText2>{t("investing.moreInvest")}</LinkText2></DescLink> */}
                     </Desc>
-                </Container>
+                </Container1>
             </Wrapper>
-            <Container>
+            <Container1 style={{padding: '0 10px'}}>
                 <FlexBlock>
-                    <HowInvest><InvestBG src={investBG} alt=""/>
-                        <TextBlock top={'60px'} left={'100px'}>
+                    <HowInvest>
+                      <InvestBG src={investBG} alt=""/>
+
+                        <TextBlock>
                             <HowInvestBtn>{t("investing.howInvest")}</HowInvestBtn>
                             <HowInvestDesc fontSize={'30px'}>{t("investing.info")}</HowInvestDesc>
-                            <ReadMoreBtn>{t("investing.readMore")}</ReadMoreBtn>
+                            <ReadMoreBtn onClick={() => nav('/newspage')}>{t("investing.readMore")}</ReadMoreBtn>
                         </TextBlock>
                     </HowInvest>
                     {/* <Stonks>
@@ -223,7 +252,7 @@ const Investing: FC = () => {
                     </Stonks> */}
                 </FlexBlock>
 
-            </Container>
+            </Container1>
 
 
         </Wrapper>

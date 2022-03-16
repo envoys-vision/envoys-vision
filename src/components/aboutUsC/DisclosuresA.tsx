@@ -29,7 +29,7 @@ const AboutUsLink = styled.a`
 
 const DisclosuresA:React.FC = () => {
   return (
-    <Flex direction='column' style={{flex: 1}}>
+    <Flex direction='column' margin='20px' style={{flex: 1}}>
         <AboutUsLink href={require('./DisclosuresDoc/277 500 000.pdf')} target="_blank">Отчет за 3 квартал открытого общества ОАО "Энвойс Вижион Диджитал Эксчейндж"</AboutUsLink>
         <AboutUsLink href={require('./DisclosuresDoc/5 277 500 000.pdf')} target="_blank">Отчет за 4 квартал открытого акционерного общества ОАО "Энвойс Вижион Диджитал Эксчейндж"</AboutUsLink>
 

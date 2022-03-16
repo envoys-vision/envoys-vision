@@ -20,13 +20,15 @@ import AboutUs from './pages/AboutUs/AboutUs';
 import TradingCalendar from './pages/TradingCalendar/TradingCalendar';
 import Admin from './pages/Admin/Admin';
 import DisclosureAll from './pages/DisclosureAll/DisclosureAll';
+import Markets from './pages/Markets/Markets';
+import NewsPage from './pages/NewsPage/NewsPage';
 
 
 
 function App() {
   const [showSwiper, setShowSwiper] = React.useState(true)
   const [values, setValues] = React.useState<any>([])
-  const [urlReqs, setUrlReqs] = React.useState([['usd', 'kgs'], ['btc', 'usd'], ['usd', 'kgs'], ['btc', 'usd']])
+  const [urlReqs, setUrlReqs] = React.useState([['usd', 'kgs'], ['btc', 'usd']])
   const [tokens, settokens] = React.useState([
     'B60Y9G6MUFIB74BR',
     'JT5JJJ1PQ7KQ523Z',
@@ -49,27 +51,25 @@ function App() {
   }
 
   function requestGetBtc(el:any){
-          let randToken = tokens[getRandomNum(0, tokens.length)]
-          axios(`https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=${el[0]}&market=${el[1]}&apikey=${randToken}`)
-              .then(res => res.data)
-              .then(res => {
-                  
-                try{
-
-                    let resKeys = Object.keys(res['Time Series (Digital Currency Daily)'])
-                    let priceToday = res['Time Series (Digital Currency Daily)'][resKeys[0]]['2b. high (USD)']
-                    let priceYesterday = res['Time Series (Digital Currency Daily)'][resKeys[1]]['2b. high (USD)']
-                    let newObj = {
-                        name: el[0]=='btc'?el[0].toUpperCase()+' USD':el[0].toUpperCase(),
-                        value: String(priceToday).slice(0, 7),
-                        pos: String((parseFloat(priceToday)-parseFloat(priceYesterday))).slice(0, 7)
-                    }
-                    setValues(val => [...val, newObj])
-                  }catch (error){
-                    requestGetBtc(el)
-                  }
-              })
-        }
+    let randToken = tokens[getRandomNum(0, tokens.length)]
+    axios(`https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=${el[0]}&market=${el[1]}&apikey=${randToken}`)
+        .then(res => res.data)
+        .then(res => {
+          try{
+              let resKeys = Object.keys(res['Time Series (Digital Currency Daily)'])
+              let priceToday = res['Time Series (Digital Currency Daily)'][resKeys[0]]['2b. high (USD)']
+              let priceYesterday = res['Time Series (Digital Currency Daily)'][resKeys[1]]['2b. high (USD)']
+              let newObj = {
+                  name: el[0]=='btc'?el[0].toUpperCase()+' USD':el[0].toUpperCase(),
+                  value: String(priceToday).slice(0, 7),
+                  pos: String((parseFloat(priceToday)-parseFloat(priceYesterday))).slice(0, 7)
+              }
+              setValues(val => [...val, newObj])
+            }catch (error){
+              requestGetBtc(el)
+            }
+      })
+  }
 
     function requestGetUsd(el:any){
       let randToken = tokens[getRandomNum(0, tokens.length)]
@@ -132,12 +132,14 @@ function App() {
         <Route path="/listing/company" element={<Company/>}/>
         {/* <Route path="/clearing" element={<Clearing/>}/> */}
         {/* <Route path="/disclosure" element={<DisclosureAll/>}/> */}
+        <Route path="/newspage" element={<NewsPage/>}/>
         <Route path="/aboutus" element={<AboutUs/>}/>
         <Route path="/news&analytics" element={<News/>}/>
         <Route path="/earningcalendar" element={<EarningC/>}/>
         <Route path="/dividendcalendar" element={<DividendC/>}/>
         <Route path="/tradingcalendar" element={<TradingCalendar/>}/>
         <Route path="/admin" element={<Admin/>}/>
+        <Route path='/market' element={<Markets/>}/>
       </Routes>
 
       <Footer/>

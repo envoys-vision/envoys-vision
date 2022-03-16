@@ -2,22 +2,29 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import { Container, Flex } from '../../uikit/uikit'
-import {Link} from 'react-router-dom'
 import SideBarAbout from '../../components/aboutUsC/SideBarAbout'
 import Documents from '../../components/aboutUsC/Documents'
 import RulesKR from '../../components/aboutUsC/RulesKR'
 import AboutParters from '../../components/aboutUsC/AboutParters'
 import DisclosuresA from '../../components/aboutUsC/DisclosuresA'
+import Statement from '../../components/aboutUsC/Statement'
 
 
 const AboutUs:React.FC = () => {
-  const [listingPath, setListingPath] = React.useState('Внутренние документы биржи')
+  const [listingPath, setListingPath] = React.useState<any>('Законодательство КР')
   
   const loc = useLocation()
 
   function changeListingPath(el:string){
     setListingPath(el)
   }
+
+  React.useEffect(() => {
+    if(loc.state){
+      setListingPath(loc.state)
+    }
+  }, [loc])
+  
 
   
 
@@ -34,15 +41,20 @@ const AboutUs:React.FC = () => {
     if(listingPath === 'Раскрытия информации') {
       return <DisclosuresA/>
     }
+    if(listingPath === 'Приложения к листингу') {
+      return <Statement/>
+    }
   }
 
   return (
-    <Container>
-      <Flex margin='30px 0'>
-        <SideBarAbout changeLP={changeListingPath} activeText={listingPath}/>
-        {getSideChoose()}
-      </Flex>
-    </Container>
+    <div style={{margin: '50px 0 0 0', borderTop: '1px solid #DADADA'}}>
+      <Container>
+        <Flex>
+          <SideBarAbout changeLP={changeListingPath} activeText={listingPath}/>
+          {getSideChoose()}
+        </Flex>
+      </Container>
+    </div>
   )
 }
 

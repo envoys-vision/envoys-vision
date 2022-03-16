@@ -16,17 +16,19 @@ const SignIn:React.FC<Props> = (props) => {
     const [error, setError] = React.useState('')
 
     function signInHandler(e:React.FormEvent){
-        e.preventDefault()      
-        const token = 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjJkYzBlNmRmOTgyN2EwMjA2MWU4MmY0NWI0ODQwMGQwZDViMjgyYzAiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZW52b3lzLXZpc2lvbi1uZXdzIiwiYXVkIjoiZW52b3lzLXZpc2lvbi1uZXdzIiwiYXV0aF90aW1lIjoxNjQ2OTk2Nzc4LCJ1c2VyX2lkIjoiMmwwZlk0R2dybVNSdmlTV1VXZE9xWFZUSkdyMiIsInN1YiI6IjJsMGZZNEdncm1TUnZpU1dVV2RPcVhWVEpHcjIiLCJpYXQiOjE2NDY5OTY3NzgsImV4cCI6MTY0NzAwMDM3OCwiZW1haWwiOiJiYWt5dHV1bHViZWtzdWx0YW5AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImJha3l0dXVsdWJla3N1bHRhbkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.OF1NwmUMXtxSFsfRk3o_ZbjxY-9lPIBVlRArUwC5H1smU0XRMLw9LxyrTL5A0vl9Gl29GORLsnxvIOZzozkdEd8b0yTGCwyhtgsVsD_4iHSfoyQi6xBDdw5VufexOxfRtvbjwDJZ0Qb9G2evvILr9f0G94IJI6hN-IBxqNF0ZHbs2VekXDylePi19pfvH_WGBW-3zsVvg5b9t1c_XaS5ly8Kz6cdDZfAU2T6V1jcpLZVaR2eBUCPiJywFey9RlCLZ9j1Drgdx6G_Eywz4AvImIDOKyY-WwsgY6D-o1KzhUOeQlvGhtRkJA14wwQUqjF0eEl8Updh1fATUQCvkOfTKw'
+        e.preventDefault()  
         Firebase.auth()
         .signInWithEmailAndPassword(adminEmail, adminPas)
             .then((res:any) => {
-                if(res.user['_delegate'].accessToken === token){
+                // if(res.user['_delegate'].accessToken === token){
+                    console.log(res);
+                    
                     props.signIn(true)    
                     setAdminEmail('')
                     setAdminPas('')
-                }
+                // }
             }).catch(err => {
+                alert('ошибка')
                 setError(String(err))
                 setAdminPas('')
             }).finally(() => {

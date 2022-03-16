@@ -69,6 +69,26 @@ const HeaderSwiper:React.FC<Props> = (props) => {
                     </SwiperSlide>
                 }
             })}
+            {props.swiperValues.map((val:any, index:number) => {
+                if(props.swiperValues.length > 0){
+                    let posB = true
+                    if(val.pos[0] === '-') posB = false
+                    return <SwiperSlide  key={index}>
+                        <HeaderSwiperItem>
+                            <Flex align='center'>
+                                <HeaderSwiperIcon src={posB?incr:decr}/>
+                                <Flex direction='column'>
+                                    <HeaderSwiperText>{val.name}</HeaderSwiperText>
+                                    <Flex margin='10px 0 0 0'>
+                                        <HeaderSwiperText>{val.value}</HeaderSwiperText>
+                                        {!posB?<BannerInfoDecrease margin={true}>{val.pos}</BannerInfoDecrease>:<BannerInfoIncrease margin={true}>+{val.pos}</BannerInfoIncrease>}
+                                    </Flex>
+                                </Flex>
+                            </Flex>
+                        </HeaderSwiperItem>
+                    </SwiperSlide>
+                }
+            })}
         </Swiper>
     </HeaderSwiperS>
   )
