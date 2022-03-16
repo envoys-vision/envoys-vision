@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 import { Route, Routes } from "react-router";
 import Bonds from '../Bonds/Bonds'
 import IDiploms from '../IssuersDiplomas/IDiploms'
-import Disclosures from '../Disclosures/Disclosures'
+import DisclosuresListing from '../DisclosuresListing/DisclosuresListing'
 
 
 const Listing:React.FC = () => {
@@ -21,7 +21,7 @@ const Listing:React.FC = () => {
       return <Bonds/>
     }
     if(listingPath === 'Раскрытие информации компаниями' || location.state== 'Раскрытие информации компаниями') {
-      return <Disclosures/>
+      return <DisclosuresListing/>
     }
 
   }

@@ -6,21 +6,20 @@ import { DropDownInside, DropDownLink, HeaderDropDown, HeaderDropDownS, HeaderDr
 const DropDownAbout:React.FC = () => {
 const [aboutList, setAboutList] = React.useState([
     'Участники',
-    'Внутренние документы биржи',
+    'Правила',
     'Законодательство КР',
     'Раскрытия информации',
-    'Приложения к листингу'
     ])
   const navigate = useNavigate()
 
   return (
     <HeaderDropDownWrap>
-    <DropDownInside style={{  height: '220px'}}>
+    <DropDownInside style={{  height: '190px'}}>
       <Flex direction='column'>
         {aboutList.map((el, index) => {
           return <DropDownLink
                     key={index} 
-                    onClick={() => navigate('aboutus', {state: el})}>
+                    onClick={() => navigate('disclosures', {state: el})}>
                   {el}
                 </DropDownLink>
         })}

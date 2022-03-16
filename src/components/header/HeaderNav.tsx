@@ -20,14 +20,14 @@ const HeaderNav:React.FC = () => {
         'Листинг', 
         // 'Клиринг', 
         'Новости и аналитика', 
-        // 'Раскрытия информации',
+        'Раскрытие информации',
         'О нас'])
     const [navLinksEn, setNavLinksEn] = React.useState([
         'markets', 
         'listing', 
         // 'clearing', 
         'news&analytics',
-        // 'disclosure',
+        'disclosures',
         'aboutus'])
     const [marketClick, setMarketClick] = useState(false)
     const [listingClick, setListingClick] = useState(false)
@@ -86,7 +86,7 @@ const HeaderNav:React.FC = () => {
                             <HeaderDropDownLogo src={Dd}/>
                         </Flex>
                     }
-                    if(el === 'О нас'){
+                    if(el === 'Раскрытие информации'){
                         return <Flex
                             margin='0 15px'
                             key={index}

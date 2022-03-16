@@ -22,6 +22,7 @@ import Admin from './pages/Admin/Admin';
 import DisclosureAll from './pages/DisclosureAll/DisclosureAll';
 import Markets from './pages/Markets/Markets';
 import NewsPage from './pages/NewsPage/NewsPage';
+import Disclosures from './pages/Disclosures/Disclosures';
 
 
 
@@ -139,6 +140,7 @@ function App() {
         <Route path="/dividendcalendar" element={<DividendC/>}/>
         <Route path="/tradingcalendar" element={<TradingCalendar/>}/>
         <Route path="/admin" element={<Admin/>}/>
+        <Route path="/disclosures" element={<Disclosures/>}/>
         <Route path='/market' element={<Markets/>}/>
       </Routes>
 

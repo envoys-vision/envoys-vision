@@ -21,14 +21,14 @@ const Burger:React.FC<Props> = (props) => {
         'Листинг', 
         // 'Клиринг', 
         'Новости и аналитика', 
-        // 'Раскрытие информации',
+        'Раскрытие информации',
         'О нас'])
     const [navLinksEn, setNavLinksEn] = React.useState([
         'markets', 
         'listing', 
         // 'clearing', 
         'news&analytics',
-        // 'disclosure', 
+        'disclosures', 
         'aboutus'])
     const [listingClick, setListingClick] = React.useState(false)
     const [activeLang, setActiveLang] = React.useState('Russian')

@@ -14,14 +14,12 @@ type Props = {
 const SideBarAbout:React.FC<Props> = (props) => {
     const [links, setLinks] = React.useState([
         'Участники',
-        'Внутренние документы биржи',
+        'Правила',
         'Законодательство КР',
         'Раскрытия информации',
-        'Приложения к листингу'
     ])
     const [sideBarClickIcon, setSideBarClickIcon] = React.useState(false)
-    const navigate = useNavigate() 
-    const location = useLocation()
+    
 
   return (
     <SideBarWrap style={{borderRight: '1px solid #DADADA', maxWidth: '300px'}}>

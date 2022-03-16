@@ -69,6 +69,9 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
         if(el.toLowerCase() === 'newspage'){
             el = 'News page'
         }
+        if(el.toLowerCase() === 'disclosures'){
+            el = 'Disclosures'
+        }
 
         newPathLoc.push(el)
       })
