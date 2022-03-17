@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Flex } from '../../uikit/uikit'
 import Icon from '../../assets/siteIcon.svg'
+import { AboutPLinksPartner } from './aboutUsSC'
 
 const AboutP = styled(Flex)`
     padding: 25px 0;
@@ -43,8 +44,8 @@ const AboutPLinkIacon = styled.img`
 
 const AboutParters = () => {
     const [partners, setPartners] = React.useState([
-        {name: 'Общество с ограниченной ответственностью "Роял Пюр Голд"', site: 'https://rpg.kg/'},
-        {name: 'Общество с ограниченной ответственностью "Омега Капитал" ', site: 'https://omegacapital.kg'},
+        {name: 'Общество с ограниченной ответственностью "Роял Пюр Голд"', site: 'rpg.kg'},
+        {name: 'Общество с ограниченной ответственностью "Омега Капитал" ', site: 'omegacapital.kg'},
         {name: 'Общество с ограниченной ответственностью "Аскоинвест"', site: ''},
         {name: 'Общество с ограниченной ответственностью Финансово-Консалтинговая компания "АТО-финанс"', site: ''},
         {name: 'Общество с ограниченной ответственностью финансово-инвестиционная компания "Си Эй Кэпитал"', site: ''},
@@ -63,8 +64,10 @@ const AboutParters = () => {
                     <AboutPText style={{textTransform: 'none'}}>{el.name}</AboutPText>
                     {el.site.length>0
                         ?<Flex style={{textAlign: 'end'}} align='center'>
+                            <AboutPLinksPartner target='_blank' href={'https://' + el.site}>
                             <AboutPLinkIacon src={Icon} alt="" />
-                            <AboutPLinks target='_blank' href={el.site}>сайт</AboutPLinks>
+                                <span>{el.site}</span>
+                            </AboutPLinksPartner>
                         </Flex>
                     :<></>}
                 </Flex>

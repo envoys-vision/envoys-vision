@@ -21,6 +21,7 @@ export const SideBarIcon = styled.img`
 
 export const SideBarWrap = styled.div`
     padding: 0px 40px 0 0;
+    max-width: 240px;
     @media (max-width: 765px) {
         padding: 0px 10px 0 0;
         
@@ -106,7 +107,7 @@ export const SideBarLink = styled.button`
     :hover{
         color: #045599;
         font-weight: 600;
-        font-size: 20px;
+        /* font-size: 20px; */
     }
     @media (max-width: 765px) {
         margin: 10px 0;
@@ -117,10 +118,10 @@ export const SideBarLink = styled.button`
 export const SideBarLinkActive = styled(SideBarLink)`
     color: #045599;
     font-weight: 600;
-    font-size: 20px;
+    /* font-size: 20px; */
     @media (max-width: 765px) {
         color: #fff;
-        font-size: 16px;
+        /* font-size: 16px; */
         font-weight: 300;
     }
 `

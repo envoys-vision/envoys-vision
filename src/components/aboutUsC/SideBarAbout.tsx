@@ -22,10 +22,9 @@ const SideBarAbout:React.FC<Props> = (props) => {
     
 
   return (
-    <SideBarWrap style={{borderRight: '1px solid #DADADA', maxWidth: '300px'}}>
+    <SideBarWrap style={{borderRight: '1px solid #DADADA'}}>
         <SideBarFlex direction='column' align='flex-start' click={ sideBarClickIcon}>
             <SideBarTitle>
-                {/* ПРАВИЛА */}
                 <SideBarBtn onClick={() => setSideBarClickIcon(val => !val)}>
                         <img src={icon} alt="" />
                     </SideBarBtn>

@@ -4,6 +4,7 @@ import BannerInfo from "../bannerInfo/BannerInfo";
 import HeaderSwiper from "../headerSwiper/HeaderSwiper";
 import { BannerBtn, BannerFlex, BannerInfoTexts, BannerText, BannerWrap } from "./BannerSC";
 import {useTranslation} from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
     swiperValues: any
@@ -11,6 +12,8 @@ type Props = {
 
 const Banner:React.FC<Props> = (props) => {
     const {t} = useTranslation()
+
+    const nav = useNavigate()
     return (
         <BannerWrap>
 
@@ -20,7 +23,7 @@ const Banner:React.FC<Props> = (props) => {
                 <BannerFlex align="center" justify="space-around" margin='50px 0 0 0'>
                     <BannerInfoTexts align="flex-start" direction="column">
                         <BannerText>{t("home.homeTitle")}</BannerText>
-                        <BannerBtn>{t("home.button")}</BannerBtn>
+                        <BannerBtn onClick={() => nav('/newspage')}>{t("home.button")}</BannerBtn>
                     </BannerInfoTexts>
 
                     <BannerInfo/>

@@ -16,8 +16,8 @@ const Documents:React.FC =() => {
   const [headerBtns, setHeaderBtns] = React.useState([
     'Листинг',
     'Депозитарий и Клиринг',
-    'Корпоративные',
-    'Правила торгов',
+    'Внутренние документы',
+    'Торги (Фондовая биржа)',
   ])
 
   const [active, setActive] = React.useState('Листинг')
@@ -30,10 +30,10 @@ const Documents:React.FC =() => {
     if(active == 'Депозитарий и Клиринг'){
       return <DClearing/>
     }
-    if(active == 'Корпоративные'){
+    if(active == 'Внутренние документы'){
       return <DCorporate/>
     }
-    if(active == 'Правила торгов'){
+    if(active == 'Торги (Фондовая биржа)'){
       return <MarketRules/>
     }
   }

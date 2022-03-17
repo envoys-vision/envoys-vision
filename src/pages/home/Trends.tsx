@@ -5,6 +5,7 @@ import respBG from '../../assets/respBg.jpg'
 import respBG1 from '../../assets/respBg1.jpg'
 import {useTranslation} from "react-i18next";
 import { BannerBtn } from '../../components/homeComponents/banner/BannerSC';
+import { useNavigate } from 'react-router-dom';
 
 
 const Wrapper = styled.div`
@@ -94,13 +95,18 @@ type Props = {
 
 const Trends : FC = () => {
      const {t} = useTranslation()
+
+     const nav = useNavigate() 
     return (
      <Wrapper>
          <Container>
              <TrendsText>
                  <TrendsTitle>{t("trend.title")}</TrendsTitle>
-                 <TrendsSubtitle>{t("trend.subtitle")}</TrendsSubtitle>
-                 <BannerBtn>{t("home.button")}</BannerBtn>
+                 <TrendsSubtitle>
+                 Откройте для себя финансовые рынки
+                   {/* {t("trend.subtitle")} */}
+                 </TrendsSubtitle>
+                 <BannerBtn  onClick={() => nav('/newspage')}>{t("home.button")}</BannerBtn>
              </TrendsText>
          </Container>
 

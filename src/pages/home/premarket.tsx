@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import styled from 'styled-components'
 import {LineChart, Line} from 'recharts';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
@@ -235,6 +235,9 @@ const Premarket : FC = () => {
     const month = new Date().getMonth()
     const date = new Date().toLocaleDateString().split('.')
     const {t} = useTranslation()
+    const [marketMin, setMarketMin] = useState<any>()
+    const [marketHour, setMarketHour] = useState<any>()
+    const [market, setMarket] = useState(false)
 
     const data = [{
         name: '1',
@@ -274,13 +277,31 @@ const Premarket : FC = () => {
         uv: 70,
       },];
 
+      React.useEffect(() => {
+        let hour = new Date().getHours()
+        let min = new Date().getMinutes()  
+        
+        if(hour > 9 && hour < 19){
+          setMarket(true)
+        }else{
+
+          setMarketMin(min>0?60-min:min)
+        } 
+      }, [])
+      
+
     return (
         <Wrapper>
         <PreMarket>
             <PreMarketHeader>
                 <PrmHeaderBlock>
-                  <PrmHeaderTitle> U.S</PrmHeaderTitle>
-                    <PrmHeaderPreTitle style={{width: 'auto'}} className='title'>{t("premarket.title")}</PrmHeaderPreTitle>
+                  {/* <PrmHeaderTitle> U.S</PrmHeaderTitle> */}
+                    <PrmHeaderPreTitle style={{width: 'auto'}} className='title'>
+                      {/* {t("premarket.title")} */}
+                      {/* ПРЕДВАРИТЕЛЬНЫЙ РЫНОК КР. Рынок ценных бумаг {market?'открыт':
+                      `откроется через ${marketHour}ч ${marketMin}м`} */}
+                      ПРЕДВАРИТЕЛЬНЫЙ РЫНОК КР. Рынок ценных бумаг открывается с 9:00 - 19:00
+                    </PrmHeaderPreTitle>
                 </PrmHeaderBlock>
                 <HeaderBtns>
                     <HeaderBtn>U.S</HeaderBtn>

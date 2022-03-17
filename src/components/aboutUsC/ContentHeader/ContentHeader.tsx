@@ -1,6 +1,6 @@
 import React from 'react'
 import { Flex } from '../../../uikit/uikit'
-import { ContentSideBtn, ContentSideBtnActive } from '../aboutUsSC';
+import { ContentSideBtn, ContentSideBtnActive,ContentSideWrap } from '../aboutUsSC';
 
 type Props = {
     headerBtns: string[];
@@ -10,7 +10,7 @@ type Props = {
 
 const ContentHeader:React.FC<Props> = (props) => {
   return (
-    <Flex justify={props.headerBtns.length>2?'space-between':'flex-start'} margin='0 0 70px 0' style={{borderBottom: '1px solid #DADADA'}}>
+    <ContentSideWrap justify={props.headerBtns.length>2?'space-between':'flex-start'} margin='0 0 70px 0'>
         {props.headerBtns.map((el, index) => {
             if(props.active === el){
                 return <ContentSideBtnActive 
@@ -22,7 +22,7 @@ const ContentHeader:React.FC<Props> = (props) => {
             }
             return <ContentSideBtn key={index} onClick={() => props.clickBtn(el)}>{el}</ContentSideBtn>
         })}
-    </Flex>
+    </ContentSideWrap>
   )
 }
 

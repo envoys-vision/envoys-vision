@@ -77,12 +77,13 @@ export const HeaderNavText = styled.p`
   font-weight: 500;
   color: #045599;
   cursor: pointer;
-text-transform: capitalize;
+  text-transform: none;
 
 `
 
 export const HeaderNavLink = styled(Link)`
-text-transform: capitalize;
+text-transform: none;
+text-align: center;
     font-family: Exo 2;
     font-style: normal;
     font-weight: 500;

@@ -18,6 +18,16 @@ export const AboutUsLink = styled.a`
     }
 `
 
+export const AboutPLinksPartner = styled(AboutUsLink)`
+    display: flex;
+    align-items: center;
+    @media(max-width: 768px){
+        span{
+            display: none;
+        }
+    }
+`
+
 
 export const AboutUsTitle = styled.h2`
     font-family: 'Exo 2';
@@ -48,6 +58,10 @@ export const ContentSideBtn = styled.button`
     cursor: pointer;
     transition: .3s;
     margin: 0 40px;
+    @media(max-width: 708px){
+        margin: 0;
+
+    }
     :nth-child(1){
         margin: 0;
     }
@@ -109,5 +123,53 @@ export const ContentSideLink = styled.a`
     transition: .3s;
     :hover{
         font-weight: 700;
+    }
+`
+
+
+export const DDropDownItem = styled.li`
+    display: flex;
+    flex-direction: column;
+`
+
+export const DDropDownTitle = styled.h3`
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #3D3D3D;
+    cursor: pointer;
+`
+
+export const DDropDownIcon = styled.img`
+    cursor: pointer;
+    width: 20px;
+`
+
+type Props = {
+    click: boolean;
+}
+
+export const DDropDownInfo = styled(Flex)<Props>`
+    transition: .3s;
+    border-top: 1px solid rgb(218, 218, 218);
+    visibility: ${props => props.click?'visible':'hidden'};
+    height: ${props => props.click?'auto':'0'};
+    padding: ${props => props.click?'20px 0 0':'0'};
+    opacity: ${props => props.click?'1':'0'};
+
+    a{
+        margin: ${props => props.click?'10px 20px':'0 20px'};
+    }
+` 
+
+
+export const ContentSideWrap = styled(Flex)`
+    border-bottom: 1px solid #DADADA;
+    @media(max-width: 708px){
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: none;
     }
 `

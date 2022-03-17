@@ -80,14 +80,14 @@ const BannerInfo:React.FC = () => {
                     </Flex>
                 </Flex>
     
-                <Flex direction='column'>
+                {/* <Flex direction='column'>
                     <BannerInfoText margin={false} mnTop={true}>Dow Industrials</BannerInfoText>
                     <BannerInfoText margin={false} mnTop={true}>0</BannerInfoText>
                     <Flex margin='15px 0 15px 0'>
                         <BannerInfoIncrease  margin={false}>0</BannerInfoIncrease> 
                         <BannerInfoIncrease  margin={true}>0</BannerInfoIncrease> 
                     </Flex>
-                </Flex>
+                </Flex> */}
             </Flex>
 
             <BannerInfoLink to='/market'>Посмотреть всю рыночную активность</BannerInfoLink>

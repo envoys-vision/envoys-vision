@@ -239,7 +239,7 @@ const Investing: FC = () => {
                         <TextBlock>
                             <HowInvestBtn>{t("investing.howInvest")}</HowInvestBtn>
                             <HowInvestDesc fontSize={'30px'}>{t("investing.info")}</HowInvestDesc>
-                            <ReadMoreBtn onClick={() => nav('/newspage')}>{t("investing.readMore")}</ReadMoreBtn>
+                            <ReadMoreBtn >{t("investing.readMore")}</ReadMoreBtn>
                         </TextBlock>
                     </HowInvest>
                     {/* <Stonks>
