@@ -7,6 +7,9 @@ import {useTranslation} from "react-i18next";
 
 const BannerInfo:React.FC = () => {
     const [inputValue, setInputValue] = React.useState('')
+    const [day, setDay] = React.useState()
+    const [month, setMonth] = React.useState()
+    const [year, setYear] = React.useState()
     const {t} = useTranslation()
     const data = [{
           name: '1',
@@ -46,6 +49,14 @@ const BannerInfo:React.FC = () => {
           uv: 70,
         },];
 
+    React.useEffect(() => {
+      setDay(new Date().getDay())
+      setMonth(new Date().getMonth())
+      setYear(new Date().getFullYear())
+      
+    }, [])
+    
+
   return (
     <BannerInfoS>
         <BannerInfoWrap>
@@ -54,7 +65,11 @@ const BannerInfo:React.FC = () => {
                 <BannerSearchBtn><BannerSearchBtnIcon src={Icon}/></BannerSearchBtn>
             </Flex>
 
-            <BannerDate>22 Января 2022</BannerDate>
+            <BannerDate>
+              {String(day).length===1?'0'+day:day}
+              .{String(month).length===1?'0'+month:month}
+              .{year}
+              </BannerDate>
 
             <BannerInfoText margin={false}>Envoys {t("home.index")}</BannerInfoText>
             <Flex margin='15px 0 15px 0'>

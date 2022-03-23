@@ -61,6 +61,29 @@ const NewsSideBarWrap = styled.div`
     overflow-y: scroll;
     border-right: 1px solid #DADADA;
     height: 80vh;
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      transition: .3s;
+      background: #555;
+    }
+    @media(max-width: 830px){
+      flex: none;
+      border-bottom: 1px solid #DADADA;
+    }
 `
 
 type Props = {
@@ -85,6 +108,18 @@ const NewsSideBar:React.FC<Props> = (props) => {
                       </ViewMoreAndData>
                   </NewsBox>
           })}
+          {props.info.map((el:any, index:number) => {
+              return <NewsBox key={index}>
+                      <NewsText>
+                          {el.title}
+                      </NewsText>
+                      <ViewMoreAndData>
+                          <span>{el.date}</span>
+                          <ViewMore onClick={() => props.newsClick(el.title)}>Подробнее <img src={Vector} alt=""/></ViewMore>
+                      </ViewMoreAndData>
+                  </NewsBox>
+          })}
+          
         </Flex>
     </NewsSideBarWrap>
   )

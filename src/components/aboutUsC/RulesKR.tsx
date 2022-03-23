@@ -5,7 +5,6 @@ import ContentHeader from './ContentHeader/ContentHeader'
 import Position from './RulesKR/Position'
 import Rules from './RulesKR/Rules'
 
-
 const RulesKR:React.FC = () => {
   const [headerBtns, setHeaderBtns] = React.useState([
     'Положения',

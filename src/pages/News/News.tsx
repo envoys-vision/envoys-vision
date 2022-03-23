@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { HeaderNavText } from '../../components/header/hedearStyledComponents'
 import NewsSideBar from '../../components/newComponents/NewsSideBar'
 import { Container, Flex } from '../../uikit/uikit'
@@ -14,23 +14,32 @@ const StyledWrap = styled.div`
   border-top: 1px solid #DADADA;
 `
 
+const NewsContentWrap = styled(Flex)`
+  @media(max-width: 830px){
+    flex-direction: column;
+  }
+` 
+
+
 const News:React.FC = () => {
   const [info, setInfo] = React.useState<any>([])
-  const [activeNews, setActiveNews] = React.useState()
+  const [activeNews, setActiveNews] = React.useState<any>()
+  const location = useLocation()
 
   useEffect(() => {
     axios.get('https://envoys-vision-news-default-rtdb.firebaseio.com/news.json')
     .then(res => {
-      let newsData = res.data 
-      // console.log(res);
-      
+      let newsData = res.data       
       let newsArr = [...info]
       for (let i in newsData){
         newsArr.push(newsData[i])
         setInfo(newsArr)
       }
-      setActiveNews(newsArr[newsArr.length-1].title)
-      
+      if(location.state){
+        setActiveNews(location.state)
+      }else{
+        setActiveNews(newsArr[newsArr.length-1].title)
+      }
     })
   }, [])
   
@@ -43,22 +52,22 @@ const News:React.FC = () => {
                 <HeaderNavText 
                   style={{margin: '10px 0'}} 
                   onClick={() => navigate('/dividendcalendar')}>
-                    Dividend Calendar
+                    Дивидендный календарь
                 </HeaderNavText>
                 <HeaderNavText
                   style={{margin: '10px 0'}}
                   onClick={() => navigate('/earningcalendar')}>
-                    Earning Calendar
+                    Календарь заработка
                 </HeaderNavText>
             </Flex> 
           </Container>
           <StyledWrap>
               <Container>
           
-                <Flex>
+                <NewsContentWrap>
                   <NewsSideBar info={info} newsClick={setActiveNews}/>
                   <NewsPage info={info} name={activeNews}/>
-                </Flex> 
+                </NewsContentWrap> 
               </Container>
         </StyledWrap>
   </>

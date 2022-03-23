@@ -8,25 +8,17 @@ import handCoin from '../../assets/hand-coin-fill.svg'
 import changes from '../../assets/home/changes .svg'
 // @ts-ignore
 import funds from '../../assets/funds-box-fill.svg'
-import {Flex} from "../../uikit/uikit";
+import {Container, Flex} from "../../uikit/uikit";
 import {useTranslation} from "react-i18next";
 import { Link } from 'react-router-dom';
 
 
 
 const Grids = styled.div`
-width: 100%;
+  width: 100%;
   border-bottom: 1px solid #DADADA;
-  display: flex;
 `
 
-const Container = styled.div`
-    width: 1200px;
-    margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-`
 
 const FirstBlock = styled.div`
  width: 100%;
@@ -35,7 +27,7 @@ const FirstBlock = styled.div`
 `
 
 const GridItem1 = styled.div`
-  width: 400px;
+  flex:1;
   height:203px;
   border-right: 1px solid #DADADA;
   border-left: 1px solid #DADADA;
@@ -81,7 +73,7 @@ const GridItem3 = styled.div`
 `
 
 const GridItem2 = styled.div`
-  width: 400px;
+    flex:1;
   height:256px;
   border-right: 1px solid #DADADA;
   border-left: 1px solid #DADADA;
@@ -307,94 +299,98 @@ const Grid = () => {
         <>
             <Grids>
                 <Container>
-                    <GridItem1><Title>{t("event.title")}</Title></GridItem1>
-                    <GridItem1></GridItem1>
-                    <GridItem1></GridItem1>
+                    <Flex  flexWrap='wrap'>
+                      <GridItem1><Title>{t("event.title")}</Title></GridItem1>
+                      <GridItem1></GridItem1>
+                      <GridItem1></GridItem1>
+                    </Flex>
                 </Container>
             </Grids>
             <Grids>
                 <Container>
-                    <GridItem2>
-                        <Events>
-                            <Flex margin={'0 0 40px 0 '} justify={"space-between"}>
-                       <div>
-                           <EventTitle>{t("event.earning")}</EventTitle>
-                           <EventQuantity>410 {t("event.eventCount")}</EventQuantity>
-                       </div>
-                       <div>
-                           <BlueEllipse src={playBtn}/>
-                           <OrangeEllipse src={changes}/>
-                       </div>
-                            </Flex>
-                            {/* <EventDetalis>
-                                <EventLink to='#'>NXP Semiconductors N.V.</EventLink>
-                                <EventDate>01/31/2022</EventDate>
-                            </EventDetalis>
-                            <EventDetalis>
-                                <EventLink to='#'>Southern Copper Corporation</EventLink>
-                                <EventDate>01/31/2022</EventDate>
-                            </EventDetalis>
-                            <EventDetalis>
-                                <EventLink to='#'>L3Harris Technologies, Inc.</EventLink>
-                                <EventDate>01/31/2022</EventDate>
-                            </EventDetalis> */}
-                    </Events>
-                    </GridItem2>
-                    <GridItem2>
-                        <Events>
-                            <Flex margin={'0 0 40px 0 '} justify={"space-between"}>
-                                <div>
-                                    {/* <EventTitle>{t("dividends")}</EventTitle> */}
-                                    <EventTitle>Дивиденды</EventTitle>
-
-                                    <EventQuantity>120 {t("event.eventCount")}</EventQuantity>
-                                </div>
-                                <div>
-                                    <BlueEllipse src={playBtn}/>
-                                    <OrangeEllipse src={handCoin}/>
-                                </div>
-                            </Flex>
-                            {/* <EventDetalis>
-                                <EventLink to='#'>The AES Corporation</EventLink>
-                                <EventDate>01/31/2022</EventDate>
-                            </EventDetalis>
-                            <EventDetalis>
-                                <EventLink to='#'>Ally Financial Inc.</EventLink>
-                                <EventDate>01/31/2022</EventDate>
-                            </EventDetalis>
-                            <EventDetalis>
-                                <EventLink to='#'>Ames National Corporation</EventLink>
-                                <EventDate>01/31/2022</EventDate>
-                            </EventDetalis> */}
-                        </Events>
-                    </GridItem2>
-                    <GridItem2>
-                        <Events>
-                            <Flex margin={'0 0 40px 0 '} justify={"space-between"}>
-                                <div>
-                                    <EventTitle>{t("event.stock")}</EventTitle>
-                                    <EventQuantity>4 {t("event.eventCount")}</EventQuantity>
-                                </div>
-                                <div>
-                                    <BlueEllipse src={playBtn}/>
-                                    <OrangeEllipse src={funds}/>
-                                </div>
-                            </Flex>
-                            {/* <EventDetalis>
-                                <EventLink to='#'>Angel Gold Corp</EventLink>
-                                <EventDate>01/31/2022</EventDate>
-                            </EventDetalis>
-                            <EventDetalis>
-                                <EventLink to='#'>Puxin Limited</EventLink>
-                                <EventDate>01/31/2022</EventDate>
-                            </EventDetalis>
-                            <EventDetalis>
-                                <EventLink to='#'>SMART Global Holdings, Inc.</EventLink>
-                                <EventDate>01/31/2022</EventDate>
-                            </EventDetalis> */}
-
-                        </Events>
-                    </GridItem2>
+                <Flex  flexWrap='wrap'>
+                      <GridItem2>
+                          <Events>
+                              <Flex margin={'0 0 40px 0 '} justify={"space-between"}>
+                         <div>
+                             <EventTitle>{t("event.earning")}</EventTitle>
+                             <EventQuantity>410 {t("event.eventCount")}</EventQuantity>
+                         </div>
+                         <div>
+                             <BlueEllipse src={playBtn}/>
+                             <OrangeEllipse src={changes}/>
+                         </div>
+                              </Flex>
+                              {/* <EventDetalis>
+                                  <EventLink to='#'>NXP Semiconductors N.V.</EventLink>
+                                  <EventDate>01/31/2022</EventDate>
+                              </EventDetalis>
+                              <EventDetalis>
+                                  <EventLink to='#'>Southern Copper Corporation</EventLink>
+                                  <EventDate>01/31/2022</EventDate>
+                              </EventDetalis>
+                              <EventDetalis>
+                                  <EventLink to='#'>L3Harris Technologies, Inc.</EventLink>
+                                  <EventDate>01/31/2022</EventDate>
+                              </EventDetalis> */}
+                      </Events>
+                      </GridItem2>
+                      <GridItem2>
+                          <Events>
+                              <Flex margin={'0 0 40px 0 '} justify={"space-between"}>
+                                  <div>
+                                      {/* <EventTitle>{t("dividends")}</EventTitle> */}
+                                      <EventTitle>Дивиденды</EventTitle>
+  
+                                      <EventQuantity>120 {t("event.eventCount")}</EventQuantity>
+                                  </div>
+                                  <div>
+                                      <BlueEllipse src={playBtn}/>
+                                      <OrangeEllipse src={handCoin}/>
+                                  </div>
+                              </Flex>
+                              {/* <EventDetalis>
+                                  <EventLink to='#'>The AES Corporation</EventLink>
+                                  <EventDate>01/31/2022</EventDate>
+                              </EventDetalis>
+                              <EventDetalis>
+                                  <EventLink to='#'>Ally Financial Inc.</EventLink>
+                                  <EventDate>01/31/2022</EventDate>
+                              </EventDetalis>
+                              <EventDetalis>
+                                  <EventLink to='#'>Ames National Corporation</EventLink>
+                                  <EventDate>01/31/2022</EventDate>
+                              </EventDetalis> */}
+                          </Events>
+                      </GridItem2>
+                      <GridItem2>
+                          <Events>
+                              <Flex margin={'0 0 40px 0 '} justify={"space-between"}>
+                                  <div>
+                                      <EventTitle>{t("event.stock")}</EventTitle>
+                                      <EventQuantity>4 {t("event.eventCount")}</EventQuantity>
+                                  </div>
+                                  <div>
+                                      <BlueEllipse src={playBtn}/>
+                                      <OrangeEllipse src={funds}/>
+                                  </div>
+                              </Flex>
+                              {/* <EventDetalis>
+                                  <EventLink to='#'>Angel Gold Corp</EventLink>
+                                  <EventDate>01/31/2022</EventDate>
+                              </EventDetalis>
+                              <EventDetalis>
+                                  <EventLink to='#'>Puxin Limited</EventLink>
+                                  <EventDate>01/31/2022</EventDate>
+                              </EventDetalis>
+                              <EventDetalis>
+                                  <EventLink to='#'>SMART Global Holdings, Inc.</EventLink>
+                                  <EventDate>01/31/2022</EventDate>
+                              </EventDetalis> */}
+  
+                          </Events>
+                      </GridItem2>
+                    </Flex>
                 </Container>
             </Grids>
             {/* <Grids>

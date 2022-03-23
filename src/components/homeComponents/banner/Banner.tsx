@@ -20,7 +20,7 @@ const Banner:React.FC<Props> = (props) => {
             <HeaderSwiper swiperValues={props.swiperValues}/>
 
             <Container>
-                <BannerFlex align="center" justify="space-around" margin='50px 0 0 0'>
+                <BannerFlex align="center" justify="space-between" margin='50px 0 0 0'>
                     <BannerInfoTexts align="flex-start" direction="column">
                         <BannerText>{t("home.homeTitle")}</BannerText>
                         <BannerBtn onClick={() => nav('/newspage')}>{t("home.button")}</BannerBtn>

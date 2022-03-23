@@ -238,8 +238,8 @@ const Investing: FC = () => {
 
                         <TextBlock>
                             <HowInvestBtn>{t("investing.howInvest")}</HowInvestBtn>
-                            <HowInvestDesc fontSize={'30px'}>{t("investing.info")}</HowInvestDesc>
-                            <ReadMoreBtn >{t("investing.readMore")}</ReadMoreBtn>
+                            <HowInvestDesc fontSize={'30px'}>Впервые в истории. Кыргызстанцы купили рекордное количество золотых слитков</HowInvestDesc>
+                            <a target='_blank' href='https://economist.kg/novosti/2022/03/09/vpervye-v-istorii-kyrgyzstancy-kupili-rekordnoe-kolichestvo-zolotyh-slitkov/'><ReadMoreBtn >{t("investing.readMore")}</ReadMoreBtn></a>
                         </TextBlock>
                     </HowInvest>
                     {/* <Stonks>

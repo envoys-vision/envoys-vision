@@ -20,24 +20,31 @@ const DListing1:React.FC = () => {
                 <Flex align='center' justify='space-between'>
                     <Flex align='center'>
                         <DocIcon src={doc}/>
-                        <TitleLink href='#'>Methodology</TitleLink>
+                        <TitleLink href={require('../../docs/Listing2/Правила листинга ценных бумаг.pdf')} target="_blank">Правила биржевой торговли</TitleLink>
                     </Flex>
                     <DDropDownIcon src={upIcon} onClick={() => setItemClick(false)}/>
                 </Flex>
         
                 <ContentSideUl>
                     <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
+                        <ContentSideLink href={require('../../docs/Listing2/Приложение №1. Договор листинга.docx')} target="_blank">Приложение №1. Договор листинга</ContentSideLink>
                     </ContentSideLi>
                     <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
+                        <ContentSideLink href={require('../../docs/Listing2/Приложение №2. Заявка на листинг.docx')} target="_blank">Приложение №2. Заявка на листинг</ContentSideLink>
                     </ContentSideLi>
                     <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
-                </ContentSideLi>
+                        <ContentSideLink href={require('../../docs/Listing2/Приложение №5. Заключение Листингового комитета Биржи.docx')} target="_blank">Приложение №5. Заключение Листингового комитета Биржи</ContentSideLink>
+                    </ContentSideLi>
                     <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
-                </ContentSideLi>
+                        <ContentSideLink href={require('../../docs/Listing2/Приложение №7. Листинговый проспект.docx')} target="_blank">Приложение №7. Листинговый проспект</ContentSideLink>
+                    </ContentSideLi>
+                    <ContentSideLi>
+                        <ContentSideLink href={require('../../docs/Listing2/Приложение №8. Перечень иностранных фондовых бирж.docx')} target="_blank">Приложение №8. Перечень иностранных фондовых бирж</ContentSideLink>
+                    </ContentSideLi>
+                    <ContentSideLi>
+                        <ContentSideLink href={require('../../docs/Listing2/Приложение №9. Бюллетень для голосования.docx')} target="_blank">Приложение №9. Бюллетень для голосования</ContentSideLink>
+                    </ContentSideLi>
+
                 </ContentSideUl>
             </Flex>
         </DDropDownInfo>

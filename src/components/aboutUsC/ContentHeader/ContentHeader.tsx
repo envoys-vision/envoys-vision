@@ -15,7 +15,6 @@ const ContentHeader:React.FC<Props> = (props) => {
             if(props.active === el){
                 return <ContentSideBtnActive 
                     key={index} 
-                    style={{color: 'red'}}
                     onClick={() => props.clickBtn(el)}>
                         {el}
                     </ContentSideBtnActive>

@@ -6,29 +6,23 @@ import { Container, Flex } from '../../uikit/uikit'
 
 
 const Markets = () => {
-
-    const data = [
-        {
-          name: '12pm',
-          uv: 53,
-        },
-        {
-          name: '1pm',
-          uv: 12,
-        },
-        {
-          name: '2pm',
-          uv: 55,
-        }]
-
-    React.useEffect(() => {
-        
-    }, [])
-    
-
+  const [data, setData] = React.useState([
+    {
+      name: '12pm',
+      uv: 53,
+    },
+    {
+      name: '1pm',
+      uv: 12,
+    },
+    {
+      name: '2pm',
+      uv: 55,
+    }])
 
   return (
     <Container>
+      market
         {/* <ResponsiveContainer width='100%' height={250}> 
             <AreaChart 
                 data={data} 
@@ -45,7 +39,7 @@ const Markets = () => {
                 </defs>
                 <XAxis dataKey="name" />
                 <YAxis hide/>
-                <Area name='что-то' dataKey="uv" stroke="#2261DA" fillOpacity={1} fill="url(#colorUv)" />
+                <Area name='Price' dataKey="uv" stroke="#2261DA" fillOpacity={1} fill="url(#colorUv)" />
                 <Tooltip/>
             </AreaChart>
             

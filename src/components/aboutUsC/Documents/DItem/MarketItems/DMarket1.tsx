@@ -19,25 +19,10 @@ const DMarket1:React.FC = () => {
                 <Flex align='center' justify='space-between'>
                     <Flex align='center'>
                         <DocIcon src={doc}/>
-                        <TitleLink href='#'>Methodology</TitleLink>
+                        <TitleLink href={require('../../../doc/Инструкция о порядке взаиморасчетов по операциям с корпоративными ценными бумагами.pdf')} target='_blank'>Инструкция о порядке взаиморасчетов по операциям с корпоративными ценными бумагами</TitleLink>
                     </Flex>
                     <DDropDownIcon src={upIcon} onClick={() => setItemClick(false)}/>
                 </Flex>
-        
-                <ContentSideUl>
-                    <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
-                    </ContentSideLi>
-                    <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
-                    </ContentSideLi>
-                    <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
-                </ContentSideLi>
-                    <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
-                </ContentSideLi>
-                </ContentSideUl>
             </Flex>
         </DDropDownInfo>
     </DDropDownItem>

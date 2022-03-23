@@ -4,6 +4,13 @@ import { Flex } from '../../uikit/uikit'
 import Icon from '../../assets/siteIcon.svg'
 import { AboutPLinksPartner } from './aboutUsSC'
 
+const AboutWrap = styled(Flex)`
+    @media(max-width: 760px){
+      margin: 30px 0 0 0;
+    }
+    maxWidth: 100%;
+`
+
 const AboutP = styled(Flex)`
     padding: 25px 0;
     max-width: 100%;
@@ -52,7 +59,7 @@ const AboutParters = () => {
     ])
 
   return (
-    <Flex direction='column' margin='20px' flex={1}  style={{maxWidth: '100%'}}>
+    <AboutWrap direction='column' margin='20px' flex={1}>
         <AboutP justify='space-between' align='center'> 
             <AboutPText >название</AboutPText>
             <AboutPText style={{textAlign: 'end'}}>сайт</AboutPText>
@@ -73,7 +80,7 @@ const AboutParters = () => {
                 </Flex>
             })}
         </Flex>
-    </Flex>
+    </AboutWrap>
   )
 }
 

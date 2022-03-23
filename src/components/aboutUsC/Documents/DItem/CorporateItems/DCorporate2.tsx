@@ -20,25 +20,10 @@ const DCorporate2:React.FC = () => {
                 <Flex align='center' justify='space-between'>
                     <Flex align='center'>
                         <DocIcon src={doc}/>
-                        <TitleLink href='#'>Methodology</TitleLink>
+                        <TitleLink href={require('../../../doc/Положение о раскрытии информации.pdf')} target='_blank'>Положение о раскрытии информации</TitleLink>
                     </Flex>
                     <DDropDownIcon src={upIcon} onClick={() => setItemClick(false)}/>
                 </Flex>
-        
-                <ContentSideUl>
-                    <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
-                    </ContentSideLi>
-                    <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
-                    </ContentSideLi>
-                    <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
-                </ContentSideLi>
-                    <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
-                </ContentSideLi>
-                </ContentSideUl>
             </Flex>
         </DDropDownInfo>
     </DDropDownItem>

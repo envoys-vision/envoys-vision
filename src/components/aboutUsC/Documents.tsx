@@ -10,6 +10,11 @@ import DClearing from './Documents/DClearing';
 import DCorporate from './Documents/DCorporate';
 import MarketRules from './Documents/MarketRules';
 
+const DWrap = styled(Flex)`
+    @media(max-width: 760px){
+      margin: 30px 0 0 0;
+    }
+`
 
 
 const Documents:React.FC =() => {
@@ -39,12 +44,11 @@ const Documents:React.FC =() => {
   }
 
   return (
-    <Flex direction='column'  flex={1} margin='60px 0 0 60px'>
+    <DWrap direction='column'  flex={1} margin='60px 0 0 60px'>
 
     <AboutUsTitle>Правила</AboutUsTitle>
 
     <ContentHeader clickBtn={setActive} active={active} headerBtns={headerBtns}/>
-
 
     {checkBtn()}
 
@@ -59,7 +63,7 @@ const Documents:React.FC =() => {
         {/* <AboutUsLink href={'./doc/Правила листингаценных бумаг и иных финансовых инструментов.docx'} target="_blank" download>Правила листингаценных бумаг и иных финансовых инструментов</AboutUsLink>
         <AboutUsLink href={'./doc/Регламент по депозитарно-клиринговым операциям.docx'} target="_blank" download>Регламент по депозитарно-клиринговым операциям</AboutUsLink> */}
 
-      </Flex>
+      </DWrap>
   )
 }
 

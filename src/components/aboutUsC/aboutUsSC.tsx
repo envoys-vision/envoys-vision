@@ -39,9 +39,15 @@ export const AboutUsTitle = styled.h2`
     text-transform: uppercase;
     color: #045599;
     margin: 0 0 35px 0;
+    @media(max-width: 708px){
+        text-align: center;
+}
 `
 
 export const ContentSideAbout = styled(Flex)`
+@media(max-width: 760px){
+      margin: 30px 0 0 0;
+    }
 `
 
 export const ContentSideBtn = styled.button`
@@ -59,8 +65,7 @@ export const ContentSideBtn = styled.button`
     transition: .3s;
     margin: 0 40px;
     @media(max-width: 708px){
-        margin: 0;
-
+        margin: 10px 0;
     }
     :nth-child(1){
         margin: 0;
@@ -169,7 +174,7 @@ export const ContentSideWrap = styled(Flex)`
     border-bottom: 1px solid #DADADA;
     @media(max-width: 708px){
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         border-bottom: none;
     }
 `

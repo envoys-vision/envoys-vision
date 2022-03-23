@@ -9,7 +9,7 @@ type Props = {
 export const SideBarIcon = styled.img`
     visibility: hidden;
     width: 0;
-    @media (max-width: 765px) {
+    @media (max-width: 834px) {
         visibility: visible;
         width: 20px;
         margin: 9px 0 0 0;
@@ -22,14 +22,14 @@ export const SideBarIcon = styled.img`
 export const SideBarWrap = styled.div`
     padding: 0px 40px 0 0;
     max-width: 240px;
-    @media (max-width: 765px) {
+    @media (max-width: 834px) {
         padding: 0px 10px 0 0;
         
     }
     `
 
 export const SideBarCloseWrap = styled.div<Props>`
-    @media (max-width: 765px) {
+    @media (max-width: 834px) {
         transition: .3s linear;
         position: absolute;
         top: 0;
@@ -43,7 +43,7 @@ export const SideBarCloseWrap = styled.div<Props>`
 `
 
 export const SideBarFlex = styled(Flex)<Props>`
-    @media (max-width: 765px) {
+    @media (max-width: 834px) {
         position: absolute;
         padding: 20px 10px;
         top: 0;
@@ -66,7 +66,7 @@ export const SideBarTitle = styled.h3`
     text-transform: uppercase;
     color: #101010;
     margin: 0 0 36px 0;
-    @media (max-width: 765px) {
+    @media (max-width: 834px) {
             color: #fff;
             width: 100%
     }
@@ -83,7 +83,7 @@ export const SideBarBtn = styled.button`
         width: 15px;
         cursor: pointer;
     }
-    @media (max-width: 765px) {
+    @media (max-width: 834px) {
         visibility: visible;
     }
 `
@@ -109,7 +109,7 @@ export const SideBarLink = styled.button`
         font-weight: 600;
         /* font-size: 20px; */
     }
-    @media (max-width: 765px) {
+    @media (max-width: 834px) {
         margin: 10px 0;
         color: #fff;
     }
@@ -119,7 +119,7 @@ export const SideBarLinkActive = styled(SideBarLink)`
     color: #045599;
     font-weight: 600;
     /* font-size: 20px; */
-    @media (max-width: 765px) {
+    @media (max-width: 834px) {
         color: #fff;
         /* font-size: 16px; */
         font-weight: 300;

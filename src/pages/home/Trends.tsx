@@ -6,14 +6,13 @@ import respBG1 from '../../assets/respBg1.jpg'
 import {useTranslation} from "react-i18next";
 import { BannerBtn } from '../../components/homeComponents/banner/BannerSC';
 import { useNavigate } from 'react-router-dom';
+import { Container } from '../../uikit/uikit';
 
 
 const Wrapper = styled.div`
- width: 100%;
+  width: 100%;
   height: 450px;
   background: url(${BG}) 0 0 / cover;
-  display: flex;
-  align-items: center;
 
   @media (max-width: 766px) {
         background: url(${respBG}) 0 0 / cover;
@@ -24,15 +23,11 @@ const Wrapper = styled.div`
     }
 `
 
-const Container = styled.div`
- width: 1200px;
-  margin: 0 auto;
-`
 
 const TrendsText = styled.div`
-display: flex;
+padding-top: 50px;
+  display: flex;
   flex-direction: column;
-  margin-left: 29px;
   align-items: start;
   `
 

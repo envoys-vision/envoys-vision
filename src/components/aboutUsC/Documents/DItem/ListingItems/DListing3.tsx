@@ -11,7 +11,7 @@ const DListing3:React.FC = () => {
   return (
     <DDropDownItem style={{padding: '35px 0', borderBottom: '1px solid rgb(218, 218, 218)'}}>
         <Flex justify='space-between' style={{maxWidth: '550px'}} onClick={() => setItemClick(val => !val)} margin={itemClick?'0 0 25px':'0'}>
-            <DDropDownTitle>Листинговые требования</DDropDownTitle>
+            <DDropDownTitle>Листинговые сборы</DDropDownTitle>
             <DDropDownIcon src={downIcon}/>
         </Flex>
 
@@ -20,12 +20,12 @@ const DListing3:React.FC = () => {
                 <Flex align='center' justify='space-between'>
                     <Flex align='center'>
                         <DocIcon src={doc}/>
-                        <TitleLink href='#'>Methodology</TitleLink>
+                        {/* <TitleLink href='#'>Methodology</TitleLink> */}
                     </Flex>
                     <DDropDownIcon src={upIcon} onClick={() => setItemClick(false)}/>
                 </Flex>
         
-                <ContentSideUl>
+                {/* <ContentSideUl>
                     <ContentSideLi>
                         <ContentSideLink href='#'>sadas</ContentSideLink>
                     </ContentSideLi>
@@ -38,7 +38,7 @@ const DListing3:React.FC = () => {
                     <ContentSideLi>
                         <ContentSideLink href='#'>sadas</ContentSideLink>
                 </ContentSideLi>
-                </ContentSideUl>
+                </ContentSideUl> */}
             </Flex>
         </DDropDownInfo>
     </DDropDownItem>

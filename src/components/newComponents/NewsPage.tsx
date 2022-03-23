@@ -2,6 +2,36 @@ import React from 'react'
 import styled from 'styled-components';
 import { Flex } from '../../uikit/uikit';
 
+const NewsPageWrap = styled(Flex)`
+    overflow-y: scroll; 
+    height: 80vh;
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      transition: .3s;
+      background: #555;
+    }
+    @media(max-width: 830px){
+      height: 100%;
+      overflow-y: hidden;
+      margin: 0; 
+    }
+`
+
+
 const NewsTitle = styled.h1`
     font-family: 'Exo 2';
     font-style: normal;
@@ -35,14 +65,14 @@ type Props = {
 const NewsPage:React.FC<Props> = (props) => {
     
   return (
-    <Flex direction='column' margin='0 60px' flex={1} style={{overflowY: 'scroll', height: '80vh'}}>
+    <NewsPageWrap direction='column' margin='0 60px' flex={1}>
         <NewsTitle>{props.name}</NewsTitle>
         {props.info.map((el:any, index:number) => {
             if(el.title === props.name){
                 return <NewsText key={index}>{el.text}</NewsText>
             }
         })}
-    </Flex>
+    </NewsPageWrap>
   )
 }
 

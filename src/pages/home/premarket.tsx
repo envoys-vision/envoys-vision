@@ -4,14 +4,21 @@ import {LineChart, Line} from 'recharts';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Vector from '../../assets/Vector.png'
 import Rechart from '../../components/homeComponents/bannerInfo/Rechart';
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { Container, Flex } from '../../uikit/uikit';
+
+const PMWrap = styled.div`
+  width: 100%;
+  margin-top: 100px ;
+  border-top: 1px solid #DADADA;
+`
+
 
 const Wrapper = styled.div`
-  width: 100%;
-  border-top: 1px solid #DADADA;
   display: flex;
-  margin-top: 100px ;
   justify-content: center;
   @media(max-width: 765px){
     flex-wrap: wrap;
@@ -164,7 +171,7 @@ const LastNewsBlock = styled.div`
 `
 
 const NewsBox = styled.div`
-  padding: 30px 0 30px 30px;
+  padding: 30px;
   width: 100%;
   position: relative;
   &:after{
@@ -213,7 +220,7 @@ const ViewMoreAndData = styled.div`
   }
 `
 
- export const ViewMore = styled.a`
+ export const ViewMore = styled.button`
   border-style: none;
   color: #045599;
   background: transparent ;
@@ -232,12 +239,11 @@ const ViewMoreAndData = styled.div`
 `
 
 const Premarket : FC = () => {
-    const month = new Date().getMonth()
-    const date = new Date().toLocaleDateString().split('.')
     const {t} = useTranslation()
     const [marketMin, setMarketMin] = useState<any>()
     const [marketHour, setMarketHour] = useState<any>()
     const [market, setMarket] = useState(false)
+    const [news, setNews] = useState<any>([])
 
     const data = [{
         name: '1',
@@ -276,114 +282,128 @@ const Premarket : FC = () => {
         name: '12am',
         uv: 70,
       },];
+    
+      const navigate = useNavigate()
 
       React.useEffect(() => {
+
+        axios.get('https://envoys-vision-news-default-rtdb.firebaseio.com/news.json')
+          .then(res => {
+            let newsData = res.data 
+            // console.log(res);
+            let newsArr = []
+            for (let i in newsData){
+              newsArr.push(newsData[i])
+            }
+            setNews(newsArr.slice(0, 3))
+          })
+
+
+        let min = new Date().getMinutes() 
         let hour = new Date().getHours()
-        let min = new Date().getMinutes()  
         
-        if(hour > 9 && hour < 19){
+        if(hour >= 9 && hour < 19){
           setMarket(true)
         }else{
-
-          setMarketMin(min>0?60-min:min)
-        } 
+          if(min>0){
+            if(hour>=0 && hour<19){
+              setMarketHour(8-hour)
+            }else{
+              setMarketHour(8+(24-hour))
+            }
+            setMarketMin(min>0?60-min:min)
+          }else{
+            setMarketHour(9-hour)
+            setMarketMin(0)
+          }
+        }
       }, [])
       
 
     return (
-        <Wrapper>
-        <PreMarket>
-            <PreMarketHeader>
-                <PrmHeaderBlock>
-                  {/* <PrmHeaderTitle> U.S</PrmHeaderTitle> */}
-                    <PrmHeaderPreTitle style={{width: 'auto'}} className='title'>
-                      {/* {t("premarket.title")} */}
-                      {/* ПРЕДВАРИТЕЛЬНЫЙ РЫНОК КР. Рынок ценных бумаг {market?'открыт':
-                      `откроется через ${marketHour}ч ${marketMin}м`} */}
-                      ПРЕДВАРИТЕЛЬНЫЙ РЫНОК КР. Рынок ценных бумаг открывается с 9:00 - 19:00
-                    </PrmHeaderPreTitle>
-                </PrmHeaderBlock>
-                <HeaderBtns>
-                    <HeaderBtn>U.S</HeaderBtn>
-                    <HeaderBtn >{t("premarket.majorIndex")}</HeaderBtn>
-                </HeaderBtns>
-            </PreMarketHeader>
-            <CompositeIndexBlock>
-                <CompositeIndexBox>
-                    <IndexText>Envoys {t("home.index")}</IndexText>
-                    <IndexText>0
-                      {/* <NegativeNumber>0</NegativeNumber> 0 */}
-                      </IndexText>
-                    <IndexText>{t("premarket.volume")}:0</IndexText>
-                </CompositeIndexBox>
-            </CompositeIndexBlock>
-      <ChartBlock>
-          
-          <Chart>
-              <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart
-                      width={500}
-                      height={400}
-                      data={data}>
-                      <defs>
-                        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#EB9FA0" stopOpacity={0.8}/>
-                        <stop offset="95%" stopColor="#EB9FA0" stopOpacity={0}/>
-                        </linearGradient>
-                    </defs>
-                      <CartesianGrid horizontal vertical={false}/>
-                      <XAxis hide/>
-                      <YAxis orientation='right'/>
-                      <Area type="monotone" dataKey="uv" stroke="#EB9FA0" fill="#EB9FA0" />
-                  </AreaChart>
-              </ResponsiveContainer>
-          </Chart>
-
-      </ChartBlock>
-            <ChartValues>
-                <ChartValue>
-                    <span>Envoys-100</span>
-                    <span style={{margin: '15px 0'}}>0</span>
-                    <NegativeNumber>0</NegativeNumber>
-                </ChartValue>
-                {/* <ChartValue>
-                    <span>Envoys-100</span>
-                    <span style={{margin: '15px 0'}}>0</span>
-                    <NegativeNumber>0</NegativeNumber>
-                </ChartValue> */}
-
-            </ChartValues>
-        </PreMarket>
-        <LastNewsBlock>
-            <NewsBox>
-                <NewsText>
-                    США запретили операции с Центробанком, ФНБ и Минфином России
-                </NewsText>
-                <ViewMoreAndData>
-                 <span>28 Апреля</span>
-                    <ViewMore target='_blank' href={'https://www.tazabek.kg/news:1765705/?from=tazabek&place=search&sth=a008ba60d08545cfa2488de0beec7cb1'}>Подробнее <img src={Vector} alt=""/></ViewMore>
-                </ViewMoreAndData>
-            </NewsBox>
-            <NewsBox>
-                <NewsText>
-                    Объемы торгов на криптобирже резко увеличились из-за нестабильности рубля
-                </NewsText>
-                <ViewMoreAndData>
-                    <span>1 Марта</span>
-                    <ViewMore target='_blank' href='https://www.tazabek.kg/news:1765895/?from=tazabek&place=search&sth=f8e96f8c6271d71db3772d05c96bdab5'>Подробнее <img src={Vector} alt=""/></ViewMore>
-                </ViewMoreAndData>
-            </NewsBox>
-            <NewsBox>
-                <NewsText>
-                    «Интерфакс»: Обменные пункты в Нур-Султане и Алма-Ате приостановили продажу иностранной валюты
-                </NewsText>
-                <ViewMoreAndData>
-                    <span>28 Апреля</span>
-                    <ViewMore target={"_blank"} href='https://www.tazabek.kg/news:1765552/?from=tazabek&place=search&sth=9522f392056bb7785fd13f1038c2ffde'>Подробнее <img src={Vector} alt=""/></ViewMore>
-                </ViewMoreAndData>
-            </NewsBox>
-        </LastNewsBlock>
-        </Wrapper>
+        <PMWrap>
+        <Container>
+          <Flex justify='space-between'>
+           <Wrapper>
+              <PreMarket>
+                  <PreMarketHeader>
+                      <PrmHeaderBlock>
+                        {/* <PrmHeaderTitle> U.S</PrmHeaderTitle> */}
+                          <PrmHeaderPreTitle style={{width: 'auto'}} className='title'>
+                            {/* {t("premarket.title")} */}
+                            ПРЕДВАРИТЕЛЬНЫЙ РЫНОК КР. Рынок ценных бумаг {market?'открыт':
+                            `откроется через ${marketHour===0?'':marketHour+'ч'} ${marketMin}м`}
+                            {/* ПРЕДВАРИТЕЛЬНЫЙ РЫНОК КР. Рынок ценных бумаг открывается с 9:00 - 19:00 */}
+                          </PrmHeaderPreTitle>
+                      </PrmHeaderBlock>
+                      <HeaderBtns>
+                          {/* <HeaderBtn>U.S</HeaderBtn> */}
+                          <HeaderBtn >{t("premarket.majorIndex")}</HeaderBtn>
+                      </HeaderBtns>
+                  </PreMarketHeader>
+                  <CompositeIndexBlock>
+                      <CompositeIndexBox>
+                          <IndexText>Envoys {t("home.index")}</IndexText>
+                          <IndexText>0
+                            {/* <NegativeNumber>0</NegativeNumber> 0 */}
+                            </IndexText>
+                          <IndexText>{t("premarket.volume")}:0</IndexText>
+                      </CompositeIndexBox>
+                  </CompositeIndexBlock>
+            <ChartBlock>
+                
+                <Chart>
+                    <ResponsiveContainer width="100%" height="100%">
+                        <AreaChart
+                            width={500}
+                            height={400}
+                            data={data}>
+                            <defs>
+                              <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="5%" stopColor="#EB9FA0" stopOpacity={0.8}/>
+                              <stop offset="95%" stopColor="#EB9FA0" stopOpacity={0}/>
+                              </linearGradient>
+                          </defs>
+                            <CartesianGrid horizontal vertical={false}/>
+                            <XAxis hide/>
+                            <YAxis orientation='right'/>
+                            <Area type="monotone" dataKey="uv" stroke="#EB9FA0" fill="#EB9FA0" />
+                        </AreaChart>
+                    </ResponsiveContainer>
+                </Chart>
+      
+            </ChartBlock>
+                  <ChartValues>
+                      <ChartValue>
+                          <span>Envoys-100</span>
+                          <span style={{margin: '15px 0'}}>0</span>
+                          <NegativeNumber>0</NegativeNumber>
+                      </ChartValue>
+                      {/* <ChartValue>
+                          <span>Envoys-100</span>
+                          <span style={{margin: '15px 0'}}>0</span>
+                          <NegativeNumber>0</NegativeNumber>
+                      </ChartValue> */}
+      
+                  </ChartValues>
+              </PreMarket>
+              <LastNewsBlock>
+                {news.map((el, index) => (
+                  <NewsBox key={index}>
+                      <NewsText>
+                          {el .title}
+                      </NewsText>
+                      <ViewMoreAndData>
+                       <span>{el.date}</span>
+                          <ViewMore  onClick={() => navigate('/news&analytics', {state: el.title})}>Подробнее <img src={Vector} alt=""/></ViewMore>
+                      </ViewMoreAndData>
+                  </NewsBox>
+                ))}
+              </LastNewsBlock>
+           </Wrapper>
+          </Flex>
+          </Container>
+        </PMWrap>
     );
 };
 

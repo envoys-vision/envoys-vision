@@ -20,25 +20,10 @@ const DClearing2:React.FC = () => {
                 <Flex align='center' justify='space-between'>
                     <Flex align='center'>
                         <DocIcon src={doc}/>
-                        <TitleLink href='#'>Methodology</TitleLink>
+                        <TitleLink href={require('../../../doc/О депозитарном обслуживании размещения новой эмиссии ценных бумаг.pdf')} target='_blank'>О депозитарном обслуживании размещения новой эмиссии ценных бумаг</TitleLink>
                     </Flex>
                     <DDropDownIcon src={upIcon} onClick={() => setItemClick(false)}/>
                 </Flex>
-        
-                <ContentSideUl>
-                    <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
-                    </ContentSideLi>
-                    <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
-                    </ContentSideLi>
-                    <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
-                </ContentSideLi>
-                    <ContentSideLi>
-                        <ContentSideLink href='#'>sadas</ContentSideLink>
-                </ContentSideLi>
-                </ContentSideUl>
             </Flex>
         </DDropDownInfo>
     </DDropDownItem>
