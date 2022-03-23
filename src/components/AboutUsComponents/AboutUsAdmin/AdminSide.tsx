@@ -13,9 +13,14 @@ const AdminSideWrap = styled.div`
     max-width: 500px;
     margin: 50px 0 30px 30px;
     text-align: center;
-    max-height: 660px;
     @media(max-width: 760px){
         margin: 50px 0;
+    }
+    @media(max-width: 1024px){
+        max-height: 660px;
+    }
+    @media(max-width: 870px){
+        max-height: 600px;
     }
 `
 
@@ -58,6 +63,10 @@ const AdminIcon = styled.img`
     }
 ` 
 
+const AdminLink = styled.a`
+
+`
+
 
 const  AdminSide:React.FC = () => {
   return (
@@ -67,9 +76,9 @@ const  AdminSide:React.FC = () => {
             <AdminTitle>Алмазбек Шабданов</AdminTitle>
             <AdminText>Председатель правления универсальной цифровой биржи</AdminText>
             <Flex align='center' margin='30px 0 0'>
-                <AdminIcon src={lin}/>
-                <AdminIcon src={tw}/>
-                <AdminIcon src={git}/>
+                <AdminLink href='#'><AdminIcon src={lin}/></AdminLink>
+                <AdminLink href='#'><AdminIcon src={tw}/></AdminLink>
+                <AdminLink href='#'><AdminIcon src={git}/></AdminLink>
             </Flex>
         </Flex>
     </AdminSideWrap>

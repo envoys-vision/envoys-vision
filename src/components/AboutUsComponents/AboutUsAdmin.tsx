@@ -6,7 +6,6 @@ import AdminSide from './AboutUsAdmin/AdminSide'
 
 const AdminWrap = styled.div`
     background: url(${bg}) 0 0 / cover;
-    /* height: 1398px; */
 `
 
 const AdminTitle = styled.h3`

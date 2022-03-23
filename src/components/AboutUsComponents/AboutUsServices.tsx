@@ -14,7 +14,7 @@ import { Container } from '../../uikit/uikit'
 const ServiceWrap = styled.div`
   background: url(${bg}) 0 0 /cover;
   padding: 90px 0;
-  margin: 100px 0;
+  margin: 0 0 100px 0;
 `
 const ServiceTitle = styled.h1`
   font-family: 'Exo 2';
