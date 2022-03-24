@@ -8,6 +8,7 @@ import img from '../../assets/adminImg.jpg'
 const AddNews:React.FC = () => {
     const [newsTitle, setNewsTitle] = React.useState('')
     const [newsText, setNewsText] = React.useState('')
+    const [newsLink, setNewsLink] = React.useState('')
     const [newsDate, setNewsDate] = React.useState<any>()
 
     const [error, setError] = React.useState('')
@@ -22,6 +23,7 @@ const AddNews:React.FC = () => {
             const newsPost = {
                 title: newsTitle,
                 text: newsText,
+                link: newsLink,
                 date: newsDate
             }
             axios.post('https://envoys-vision-news-default-rtdb.firebaseio.com/news.json/', newsPost)
@@ -29,6 +31,7 @@ const AddNews:React.FC = () => {
                     alert('Новости загружены')
                     setNewsTitle('')
                     setNewsText('')
+                    setNewsLink('')
                     setNewsDate('')
                 }).catch(err => setError(err))
         }
@@ -51,12 +54,17 @@ const AddNews:React.FC = () => {
                         placeholder='Введите текст'
                         onChange={e => setNewsText(e.target.value)}
                     ></AddNewsInput>
+                    <AddNewsInput
+                        value={newsLink}
+                        placeholder='Введите ссылку'
+                        onChange={e => setNewsLink(e.target.value)}
+                    ></AddNewsInput>
                     <AddNewsInputDate
                         value={newsDate}
                         type={'date'}
                         onChange={e => setNewsDate(e.target.value)}
                     />
-                    {/* <BannerBtn onSubmit={e => addNews(e)}>Сохранить</BannerBtn> */}
+                    <BannerBtn onSubmit={e => addNews(e)}>Сохранить</BannerBtn>
                 </FromD>
             </Flex>
 

@@ -28,19 +28,19 @@ const News:React.FC = () => {
 
   useEffect(() => {
     axios.get('https://envoys-vision-news-default-rtdb.firebaseio.com/news.json')
-    .then(res => {
-      let newsData = res.data       
-      let newsArr = [...info]
-      for (let i in newsData){
-        newsArr.push(newsData[i])
-        setInfo(newsArr)
-      }
-      if(location.state){
-        setActiveNews(location.state)
-      }else{
-        setActiveNews(newsArr[newsArr.length-1].title)
-      }
-    })
+      .then(res => {
+        let newsData = res.data       
+        let newsArr = []
+        for (let i in newsData){
+          newsArr.push(newsData[i])
+          setInfo(newsArr)
+        }
+        if(location.state){
+          setActiveNews(location.state)
+        }else{
+          setActiveNews(newsArr[newsArr.length-1].title)
+        }
+      })
   }, [])
   
 

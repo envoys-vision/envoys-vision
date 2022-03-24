@@ -107,19 +107,8 @@ const NewsSideBar:React.FC<Props> = (props) => {
                           <ViewMore onClick={() => props.newsClick(el.title)}>Подробнее <img src={Vector} alt=""/></ViewMore>
                       </ViewMoreAndData>
                   </NewsBox>
-          })}
-          {props.info.map((el:any, index:number) => {
-              return <NewsBox key={index}>
-                      <NewsText>
-                          {el.title}
-                      </NewsText>
-                      <ViewMoreAndData>
-                          <span>{el.date}</span>
-                          <ViewMore onClick={() => props.newsClick(el.title)}>Подробнее <img src={Vector} alt=""/></ViewMore>
-                      </ViewMoreAndData>
-                  </NewsBox>
-          })}
-          
+          })}      
+              
         </Flex>
     </NewsSideBarWrap>
   )

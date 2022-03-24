@@ -6,7 +6,7 @@ import { Container, Flex } from '../../uikit/uikit'
 
 
 const Admin:React.FC = () => {
-    const [signIn, setSignIn] = React.useState(true)
+    const [signIn, setSignIn] = React.useState(false)
 
     if(signIn){
       return <AddNews/>

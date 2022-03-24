@@ -33,6 +33,7 @@ const AdminText = styled.p<PropsText>`
     color: #FFFFFF;
     span{
         color: #F47F1F;
+        font-weight: 600;
     }
     @media(max-width: 420px){
       font-size: 16px;

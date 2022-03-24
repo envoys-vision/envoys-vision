@@ -51,19 +51,18 @@ const AchSlideInfo = styled.p`
   color: #045599;
 `
 
-const AboutUsAch = () => {
+const AboutUsAch:React.FC = () => {
   return (
     <Flex margin='100px 0'>
       <Swiper
         spaceBetween={0}
-        // slidesPerView={3}
         autoplay={{
           delay: 2000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
           reverseDirection: false
       }}
-      // speed={1000}
+      speed={500}
       loop
       modules={[Autoplay ]}
       breakpoints= {{

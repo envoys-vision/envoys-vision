@@ -290,12 +290,11 @@ const Premarket : FC = () => {
         axios.get('https://envoys-vision-news-default-rtdb.firebaseio.com/news.json')
           .then(res => {
             let newsData = res.data 
-            // console.log(res);
             let newsArr = []
             for (let i in newsData){
               newsArr.push(newsData[i])
             }
-            setNews(newsArr.slice(0, 3))
+            setNews(newsArr.reverse().slice(0, 3))
           })
 
 

@@ -4,6 +4,7 @@ import { Flex } from '../../uikit/uikit';
 
 const NewsPageWrap = styled(Flex)`
     overflow-y: scroll; 
+    overflow-x: hidden; 
     height: 80vh;
     ::-webkit-scrollbar {
       width: 10px;
@@ -57,6 +58,19 @@ const NewsText = styled.p`
     max-width: 750px;
 `
 
+const NewsLink = styled.a`
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 0.02em;
+    color: #045599;
+    margin-top: 20px;
+    max-width: 750px;
+
+`
+
 type Props = {
     name: string;
     info: any;
@@ -69,7 +83,10 @@ const NewsPage:React.FC<Props> = (props) => {
         <NewsTitle>{props.name}</NewsTitle>
         {props.info.map((el:any, index:number) => {
             if(el.title === props.name){
-                return <NewsText key={index}>{el.text}</NewsText>
+                return <Flex direction='column' key={index}>
+                  <NewsText>{el.text}</NewsText>
+                  <NewsLink href={el.link} target='_blank'>Источник: {el.link}</NewsLink>
+                </Flex>
             }
         })}
     </NewsPageWrap>

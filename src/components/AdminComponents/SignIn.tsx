@@ -20,15 +20,10 @@ const SignIn:React.FC<Props> = (props) => {
         Firebase.auth()
         .signInWithEmailAndPassword(adminEmail, adminPas)
             .then((res:any) => {
-                // if(res.user['_delegate'].accessToken === token){
-                    console.log(res);
-                    
-                    props.signIn(true)    
-                    setAdminEmail('')
-                    setAdminPas('')
-                // }
+                props.signIn(true)    
+                setAdminEmail('')
+                setAdminPas('')
             }).catch(err => {
-                alert('ошибка')
                 setError(String(err))
                 setAdminPas('')
             }).finally(() => {
