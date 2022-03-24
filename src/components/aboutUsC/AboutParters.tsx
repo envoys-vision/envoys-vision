@@ -58,6 +58,15 @@ const AboutParters = () => {
         {name: 'Общество с ограниченной ответственностью финансово-инвестиционная компания "Си Эй Кэпитал"', site: ''},
     ])
 
+    function checkMargin(id:number){
+        if(id === 0){
+            return '15px 0'
+        }else if(id === 1){
+            return '12px 0 10px 0'
+        }else{
+            return '20px 0'
+        }
+    }
   return (
     <AboutWrap direction='column' margin='20px' flex={1}>
         <AboutP justify='space-between' align='center'> 
@@ -67,11 +76,11 @@ const AboutParters = () => {
         
         <Flex direction='column'>
             {partners.map((el, index) => {
-                return <Flex key={index} margin='20px 0'>
-                    <AboutPText style={{textTransform: 'none'}}>{el.name}</AboutPText>
+                return <Flex key={index} margin={checkMargin(index)}>
+                    <AboutPText style={{textTransform: 'none', margin: 0}}>{el.name}</AboutPText>
                     {el.site.length>0
                         ?<Flex style={{textAlign: 'end'}} align='center'>
-                            <AboutPLinksPartner target='_blank' href={'https://' + el.site}>
+                            <AboutPLinksPartner style={{margin: 0}} target='_blank' href={'https://' + el.site}>
                             <AboutPLinkIacon src={Icon} alt="" />
                                 <span>{el.site}</span>
                             </AboutPLinksPartner>

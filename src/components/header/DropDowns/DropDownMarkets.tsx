@@ -35,7 +35,7 @@ const DropDownMarkets:React.FC = () => {
                     {headerLinks.map((el, i) => {
                         return <Flex key={i} direction='column' flex={1} margin='0 10px'>
                             {el.value.map((name, i) => {
-                                return <DropDownLink onClick={() => navigate('market')}
+                                return <DropDownLink onClick={() => navigate('market', {state: name})}
                                 key={i}>{name}</DropDownLink>
                             })}
 

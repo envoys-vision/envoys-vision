@@ -94,6 +94,21 @@ type Props = {
 
 const NewsSideBar:React.FC<Props> = (props) => {
 
+  function reverseDate(newsDate: string){
+    let dateArray = []
+    let dateDate = ''
+    for(let i=0; i<newsDate.length; i++){
+      dateDate += newsDate[i]
+      if(newsDate[i] === '-' || i === newsDate.length-1){
+        dateArray.push(dateDate)
+        dateDate = ''
+      }
+    }
+    dateArray = dateArray.reverse()
+    let result = dateArray[0]+'-'+dateArray[1].slice(0, 2)+'-'+dateArray[2].slice(0, 4)     
+    return result
+  }
+
   return (
     <NewsSideBarWrap >
         <Flex direction='column-reverse' justify='flex-end'>
@@ -103,7 +118,7 @@ const NewsSideBar:React.FC<Props> = (props) => {
                           {el.title}
                       </NewsText>
                       <ViewMoreAndData>
-                          <span>{el.date}</span>
+                          <span>{reverseDate(el.date)}</span>
                           <ViewMore onClick={() => props.newsClick(el.title)}>Подробнее <img src={Vector} alt=""/></ViewMore>
                       </ViewMoreAndData>
                   </NewsBox>

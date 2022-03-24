@@ -102,6 +102,8 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
         setLocationText('Что такое инвестирование?')
     }else if(location.pathname === '/disclosures'){
         setLocationText('Раскрытие Информации')
+    }else if(location.pathname === '/market'){
+        setLocationText('Рынок')
     // }else if(location.pathname === '/clearing'){
     //     setLocationText('Клириг и Депозитарий ')
     }else{

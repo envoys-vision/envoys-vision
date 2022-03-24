@@ -1,50 +1,40 @@
-import axios from 'axios'
 import React from 'react'
-import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import styled from 'styled-components'
+import MarketContentSide from '../../components/MarketComponents/MarketContentSide/MarketContentSide'
+import MarketSideBar from '../../components/MarketComponents/MarketSideBar/MarketSideBar'
 import { Container, Flex } from '../../uikit/uikit'
+import { useLocation } from 'react-router-dom'
 
+const MarketWrap = styled.div`
+  border-top: 1px solid #DADADA;
+  margin: 50px 0 0 0;
+  width: 100%;
+` 
 
 const Markets = () => {
-  const [data, setData] = React.useState([
-    {
-      name: '12pm',
-      uv: 53,
-    },
-    {
-      name: '1pm',
-      uv: 12,
-    },
-    {
-      name: '2pm',
-      uv: 55,
-    }])
+  const [listingPath, setListingPath] = React.useState<string>('Российский рынок')
+  const location = useLocation()
+
+  function changeListingPath(el:string){
+    setListingPath(el)
+  }
+
+  React.useEffect(() => {
+    if(location.state){
+      setListingPath(String(location.state))
+    }
+  }, [])
+  
 
   return (
-    <Container>
-      market
-        {/* <ResponsiveContainer width='100%' height={250}> 
-            <AreaChart 
-                data={data} 
-                margin={{ top: 40, right: 0, left: 0, bottom: 0 }}>
-                <defs>
-                    <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#2261DA" stopOpacity={0.8}/>
-                    <stop offset="95%" stopColor="#2261DA" stopOpacity={0}/>
-                    </linearGradient>
-                    <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
-                    <stop offset="95%" stopColor="#82ca9d" stopOpacity={0}/>
-                    </linearGradient>
-                </defs>
-                <XAxis dataKey="name" />
-                <YAxis hide/>
-                <Area name='Price' dataKey="uv" stroke="#2261DA" fillOpacity={1} fill="url(#colorUv)" />
-                <Tooltip/>
-            </AreaChart>
-            
-        </ResponsiveContainer> */}
+    <MarketWrap>
+      <Container>
+        <Flex>
+          <MarketSideBar changeLP={changeListingPath} activeLink={listingPath}/>
+          <MarketContentSide activeLink={listingPath}/>
+        </Flex>
     </Container>
+    </MarketWrap>
   )
 }
 

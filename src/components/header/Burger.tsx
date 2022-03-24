@@ -24,7 +24,7 @@ const Burger:React.FC<Props> = (props) => {
         'Раскрытие информации',
         'О нас'])
     const [navLinksEn, setNavLinksEn] = React.useState([
-        'markets', 
+        'market', 
         'listing', 
         // 'clearing', 
         'news&analytics',
