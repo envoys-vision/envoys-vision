@@ -103,6 +103,22 @@ function App() {
       } 
   })
 
+    // const options = {
+    //   method: 'GET',
+    //   url: 'https://yh-finance.p.rapidapi.com/stock/v2/get-timeseries',
+    //   params: {symbol: 'AMRN', period1: '493578000', period2: '1625011200', region: 'USA'},
+    //   headers: {
+    //     'X-RapidAPI-Host': 'yh-finance.p.rapidapi.com',
+    //     'X-RapidAPI-Key': '0c5f9ae241msh85a6dcdeb9f8669p13b255jsn87613b85d482'
+    //   }
+    // };
+    
+    // axios.request(options).then(function (response) {
+    //   console.log(response.data);
+    // }).catch(function (error) {
+    //   console.error(error);
+    // });
+
   }, [])
   
   

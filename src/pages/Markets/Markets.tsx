@@ -23,7 +23,7 @@ const Markets = () => {
     if(location.state){
       setListingPath(String(location.state))
     }
-  }, [])
+  }, [location])
   
 
   return (

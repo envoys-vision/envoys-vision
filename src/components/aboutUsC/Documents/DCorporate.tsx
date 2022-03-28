@@ -9,7 +9,7 @@ function DCorporate() {
   return (
     <Flex direction='column' margin='0 0 30px 0'>
         
-        <DCorporate1/>
+        {/* <DCorporate1/> */}
         <DCorporate2/>
         <DCorporate3/>
 

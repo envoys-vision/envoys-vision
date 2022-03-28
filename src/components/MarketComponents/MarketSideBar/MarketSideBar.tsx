@@ -6,9 +6,14 @@ import icon from '../../../assets/close.svg'
 import { useNavigate, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
+const MSSideBarWrap = styled(SideBarWrap)`
+    border-right: 1px solid #DADADA;
+    @media (max-width: 834px){
+        border-right: none;
+    }
+`
 
 const MSBWrap = styled(SideBarFlex)`
-    border-right: 1px solid #DADADA;
     @media (max-width: 834px){
         overflow-y: scroll;
         border-right: none;
@@ -32,8 +37,8 @@ const MarketSideBar:React.FC<Props> = (props) => {
             links: ['Горднодобывающий сектор','Промышленность','Финансовый сектор','Сельское хозяйство']
         },
         {
-            name: 'Другое',
-            links: ['Рынок металлов', 'Валютный рынок','Рынки деривативов','Криптовалютный рынок','Товарный сектор','Рынок недвижимости']
+            name: 'Рынки',
+            links: ['Рынок драгоценных металлов', 'Валютный рынок','Криптовалютный рынок','Товарный сектор','Рынок недвижимости']
         },
     ])
     const [sideBarClickIcon, setSideBarClickIcon] = React.useState(false)
@@ -43,7 +48,7 @@ const MarketSideBar:React.FC<Props> = (props) => {
     
 
     return (
-    <SideBarWrap>
+    <MSSideBarWrap>
         <MSBWrap align='flex-start' direction='column' click={ sideBarClickIcon}>
             {links.map((el, index) => {
                 return <>
@@ -87,7 +92,7 @@ const MarketSideBar:React.FC<Props> = (props) => {
     <SideBarCloseWrap click={sideBarClickIcon} 
     onClick={() => setSideBarClickIcon(val => !val)}></SideBarCloseWrap>
 
-</SideBarWrap>
+</MSSideBarWrap>
   )
 }
 

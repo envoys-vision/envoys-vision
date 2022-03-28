@@ -7,14 +7,14 @@ const DropDownMarkets:React.FC = () => {
     const [headerLinks, setHeaderLink] = React.useState([
         {title: 'Фондовый рынок', value: ['Российский рынок', 'Американский рынок', 'Кыргызский рынок']},
         {title: 'Сектора', value: ['Горднодобывающий сектор','Промышленность','Финансовый сектор','Сельское хозяйство']},
-        {title: 'Другое', value: ['Рынок металлов', 'Валютный рынок','Рынки деривативов','Криптовалютный рынок','Товарный сектор','Рынок недвижимости']},
+        {title: 'Рынки', value: ['Рынок драгоценных металлов', 'Валютный рынок','Криптовалютный рынок','Товарный сектор','Рынок недвижимости']},
     ])
 
     const navigate = useNavigate()
 
     return (
         <HeaderDropDownWrap>
-            <DropDownInside style={{width: '570px', height: '340px'}}>
+            <DropDownInside style={{width: '570px', height: '320px'}}>
                 <Flex>
                     {headerLinks.map((el, index) => {
                         return <Flex
