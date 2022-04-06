@@ -31,7 +31,7 @@ const MCSOther2:React.FC = () => {
             <SMTitle2 margin='0 0 20px 0'>Участники</SMTitle2>
             <ul style={{paddingLeft: '20px'}}>
                 <li><SMPreText>Обменки-прозрачность и реальные объем</SMPreText></li>
-                <li><SMPreText>Юридическиелица - выгода и хеджирование</SMPreText></li> 
+                <li><SMPreText>Юридические лица - выгода и хеджирование</SMPreText></li> 
                 <li><SMPreText>Банки</SMPreText></li>
                 <li><SMPreText>Международные единые стаканы</SMPreText></li> 
             </ul>

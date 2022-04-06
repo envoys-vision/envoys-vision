@@ -5,17 +5,25 @@ import { DropDownInside, DropDownLink, HeaderDropDown, HeaderDropDownS, HeaderDr
 
 const DropDownListing:React.FC = () => {
   const [listingList, setListingList] = React.useState([
-    'Листинг',
+    'Список компаний',
     'Облигации',
-    'Раскрытие информации компаниями'
+    'Раскрытие информации компаниями',
+    'Правила листинга'
   ])
   const navigate = useNavigate()
 
   return (
     <HeaderDropDownWrap>
-      <DropDownInside style={{  height: '160px'}}>
+      <DropDownInside style={{  height: '200px'}}>
         <Flex direction='column'>
           {listingList.map((el, index) => {
+            if(el === 'Правила листинга'){
+              return <DropDownLink
+                        key={index} 
+                        onClick={() => navigate('disclosures', {state: 'Правила'})}>
+                      {el}
+                    </DropDownLink>
+            }
             return <DropDownLink
                       key={index} 
                       onClick={() => navigate('listing', {state: el})}>

@@ -41,6 +41,7 @@ const News:React.FC = () => {
           setActiveNews(newsArr[newsArr.length-1].title)
         }
       })
+
   }, [])
   
 

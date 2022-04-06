@@ -164,20 +164,16 @@ type NavItemProps = {
 }
 
 const ListinC:React.FC = () => {
-
     // const[listItems, setListItems] = React.useState (require('./listing.json'))
     const[listItems, setListItems] = React.useState ([])
 
-
-    
-
     const[listItems2, setListItems2] = React.useState ([...listItems])
-    // const [NavitemsSort, setNavitemsSort] = React.useState({
-    //   all: true,
-    //   listing: false,
-    //   notListing: false,
-    //   default: false,
-    // })
+    const [NavitemsSort, setNavitemsSort] = React.useState({
+      all: true,
+      listing: false,
+      notListing: false,
+      default: false,
+    })
 
     const [inputVal, setInputVal] = React.useState<string>('')
 
@@ -220,21 +216,38 @@ const ListinC:React.FC = () => {
 
   function linkCodeHandler(e:React.MouseEvent){
     navigate(loc.pathname+'/company', {state: e.target.nextElementSibling.outerText})
-    
+  }
+
+  function clickSortNav(e:React.MouseEvent){
+    let newSortItems = {...NavitemsSort}
+    for(let i in newSortItems){
+      newSortItems[i] = false
+      if(e.target['outerText'] === 'Все'){
+        newSortItems.all = true
+      }
+      if(e.target['outerText'] === 'Листинговые'){
+        newSortItems.listing = true
+      }
+      if(e.target['outerText'] === 'Нелистинговые'){
+        newSortItems.notListing = true
+      }
+      if(e.target['outerText'] === 'Допустившие дефолт'){
+        newSortItems.default = true
+      }
+    }
+    setNavitemsSort(newSortItems)
   }
     
-
-
     return (
         <ListCompany>
             <LCTitle>Список Компаний</LCTitle>
             <Flex justify={'space-between'}>
-                {/* <LCNav>
+                <LCNav>
                   <NavItem click={NavitemsSort.all} onClick={(e) => clickSortNav (e)}>Все</NavItem>
                   <NavItem click={NavitemsSort.listing} onClick={(e) => clickSortNav (e)}>Листинговые</NavItem>
                   <NavItem click={NavitemsSort.notListing} onClick={(e) => clickSortNav (e)}>Нелистинговые</NavItem>
                   <NavItem click={NavitemsSort.default} onClick={(e) => clickSortNav (e)}>Допустившие дефолт</NavItem>
-                </LCNav> */}
+                </LCNav>
                 <LCCounter>Всего эмитентов - {listItems.length}</LCCounter>
             </Flex>
 

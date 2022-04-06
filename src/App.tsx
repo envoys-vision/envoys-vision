@@ -23,6 +23,7 @@ import DisclosureAll from './pages/DisclosureAll/DisclosureAll';
 import Markets from './pages/Markets/Markets';
 import NewsPage from './pages/NewsPage/NewsPage';
 import Disclosures from './pages/Disclosures/Disclosures';
+import Report from './pages/Report/Report';
 
 
 
@@ -41,7 +42,10 @@ function App() {
     'DJ7EVX44X6LVNIH7',
     '525LQXJBKEB9PLZP',
     'WY1XD34FPD9GXG2M',
-    'ZZZVV9WHM934K6B2'
+    'ZZZVV9WHM934K6B2',
+    '0C80KZ88HII9C1SS',
+    'WX15E2PUDWQQ5CV9',
+    'EVX9TADK1CIBKDV8'
   ])
   const location = useLocation() 
 
@@ -74,24 +78,23 @@ function App() {
 
     function requestGetUsd(el:any){
       let randToken = tokens[getRandomNum(0, tokens.length)]
-          axios(`https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=${el[0]}&to_symbol=${el[1]}&apikey=${randToken}`)
-              .then(res => res.data)
-              .then(res => {
-                try {
-
-                  let resKeys = Object.keys(res['Time Series FX (Daily)'])
-                  let priceToday = res['Time Series FX (Daily)'][resKeys[0]]['2. high']
-                  let priceYesterday = res['Time Series FX (Daily)'][resKeys[1]]['2. high']
-                  let newObj = {
-                      name: el[0]=='usd'?el[0].toUpperCase()+' KGS':el[0].toUpperCase(),
-                      value: String(priceToday.slice(0, 7)),
-                      pos: String((parseFloat(priceToday)-parseFloat(priceYesterday))).slice(0, 7)
-                  }
-                  setValues(val => [...val, newObj])
-                } catch (error){
-                  requestGetUsd(el)
-                }
-              })
+      axios(`https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=${el[0]}&to_symbol=${el[1]}&apikey=${randToken}`)
+          .then(res => res.data)
+          .then(res => {
+            try {
+              let resKeys = Object.keys(res['Time Series FX (Daily)'])
+              let priceToday = res['Time Series FX (Daily)'][resKeys[0]]['2. high']
+              let priceYesterday = res['Time Series FX (Daily)'][resKeys[1]]['2. high']
+              let newObj = {
+                  name: el[0]!=='kgs'?el[0].toUpperCase()+' KGS':el[0].toUpperCase(),
+                  value: String(priceToday.slice(0, 7)),
+                  pos: String((parseFloat(priceToday)-parseFloat(priceYesterday))).slice(0, 7)
+              }
+              setValues(val => [...val, newObj])
+            } catch (error){
+              requestGetUsd(el)
+            }
+          })
     }
 
   React.useEffect(() => {    
@@ -102,23 +105,6 @@ function App() {
         requestGetUsd(el)
       } 
   })
-
-    // const options = {
-    //   method: 'GET',
-    //   url: 'https://yh-finance.p.rapidapi.com/stock/v2/get-timeseries',
-    //   params: {symbol: 'AMRN', period1: '493578000', period2: '1625011200', region: 'USA'},
-    //   headers: {
-    //     'X-RapidAPI-Host': 'yh-finance.p.rapidapi.com',
-    //     'X-RapidAPI-Key': '0c5f9ae241msh85a6dcdeb9f8669p13b255jsn87613b85d482'
-    //   }
-    // };
-    
-    // axios.request(options).then(function (response) {
-    //   console.log(response.data);
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
-
   }, [])
   
   
@@ -158,6 +144,7 @@ function App() {
         <Route path="/admin" element={<Admin/>}/>
         <Route path="/disclosures" element={<Disclosures/>}/>
         <Route path='/market' element={<Markets/>}/>
+        <Route path='/report' element={<Report/>}/>
       </Routes>
 
       <Footer/>

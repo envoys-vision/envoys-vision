@@ -12,7 +12,7 @@ type Props = {
 
 const SideBar:React.FC<Props> = (props) => {
     const [links, setLinks] = React.useState([
-        'Листинг',
+        'Список компаний',
         'Облигации',
         'Раскрытие информации компаниями'
     ])

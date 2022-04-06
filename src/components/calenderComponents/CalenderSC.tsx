@@ -18,7 +18,7 @@ export const CalendarHeaderText = styled.p`
     line-height: 17px;
     letter-spacing: 0.02em;
     color: #101010;
-    text-transform: capitalize;
+    text-align: center;
     margin: 0 10px;
     a{
         font-family: Exo 2;

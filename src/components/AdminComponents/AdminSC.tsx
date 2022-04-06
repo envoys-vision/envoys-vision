@@ -103,3 +103,7 @@ export const AddNewsInputDate = styled.input`
 export const AddNewsImg = styled.img`
     flex: 1;
 `
+
+export const AddFile = styled.input`
+    
+`

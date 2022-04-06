@@ -10,12 +10,12 @@ const MCSOther5:React.FC = () => {
         <SMTitle2 margin='0 0 50px 0'>Товарный сектор</SMTitle2>
         <SMTitle2 margin='0 0 20px 0'>Участники</SMTitle2>
         <ul style={{paddingLeft: '20px'}}>
-            <li><SMText margin='10px 0'>Закупки итендеры (в том числе Государственные) на блокчейн технологии</SMText></li>
+            <li><SMText margin='10px 0'>Закупки и тендеры (в том числе Государственные) на блокчейн технологии</SMText></li>
             <li><SMText margin='10px 0'>Выбор поставщика по рейтингу</SMText></li>
             <li><SMText margin='10px 0'>Прозрачные правила аукциона</SMText></li> 
             <li><SMText margin='10px 0'>Бесплатная публикация тендера</SMText></li> 
             <li><SMText margin='10px 0'>Чат между участниками сделки</SMText></li> 
-            <li><SMText margin='10px 0'>Возможность для всех участвовать вторгах</SMText></li> 
+            <li><SMText margin='10px 0'>Возможность для всех участвовать в торгах</SMText></li> 
             <li><SMText margin='10px 0'>Специализированная онлайн - площадка для закупок товаров</SMText></li> 
             <li><SMText margin='10px 0'>Все проведенные аукционы записываются в блокчейн</SMText></li> 
             <li><SMText margin='10px 0'>Уникальный параметризированный каталог товаров</SMText></li> 

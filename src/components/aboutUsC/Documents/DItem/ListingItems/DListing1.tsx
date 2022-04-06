@@ -20,7 +20,7 @@ const DListing1:React.FC = () => {
                 <Flex align='center' justify='space-between'>
                     <Flex align='center'>
                         <DocIcon src={doc}/>
-                        <TitleLink href={require('../../docs/Listing2/Правила листинга ценных бумаг.pdf')} target="_blank">Правила биржевой торговли</TitleLink>
+                        <TitleLink href={require('../../docs/Listing2/Правила листинга ценных бумаг.pdf')} target="_blank">Правила листинга ценных бумаг</TitleLink>
                     </Flex>
                     <DDropDownIcon src={upIcon} onClick={() => setItemClick(false)}/>
                 </Flex>

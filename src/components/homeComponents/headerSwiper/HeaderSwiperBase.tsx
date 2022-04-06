@@ -66,6 +66,9 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
         if(el.toLowerCase() === 'earningcalendar'){
             el = 'Earning Calendar'
         }
+        if(el.toLowerCase() === 'report'){
+            el = 'Report'
+        }
         if(el.toLowerCase() === 'newspage'){
             el = 'News page'
         }
@@ -89,9 +92,9 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
     }else if(location.pathname === '/listing/company'){
         setLocationText('Раскрытие информации компаниями')
     }else if(location.pathname === '/earningcalendar'){
-        setLocationText('Earnings Calendar')
+        setLocationText('Календарь заработка')
     }else if(location.pathname === '/dividendcalendar'){
-        setLocationText('Dividend Calendar ')
+        setLocationText('Диведедный календарь ')
     }else if(location.pathname === '/aboutus'){
         setLocationText('О нас')
     }else if(location.pathname === '/news&analytics'){
@@ -104,6 +107,8 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
         setLocationText('Раскрытие Информации')
     }else if(location.pathname === '/market'){
         setLocationText('Рынок')
+    }else if(location.pathname === '/report'){
+        setLocationText('Отчёт')
     // }else if(location.pathname === '/clearing'){
     //     setLocationText('Клириг и Депозитарий ')
     }else{

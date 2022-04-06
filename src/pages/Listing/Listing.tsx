@@ -11,20 +11,26 @@ import DisclosuresListing from '../DisclosuresListing/DisclosuresListing'
 
 const Listing:React.FC = () => {
   const location = useLocation()
-  const [listingPath, setListingPath] = React.useState('Листинг')
+  const [listingPath, setListingPath] = React.useState('Список компаний')
+  
+  React.useEffect(() => {
+    setListingPath(location.state)
+  }, [location])
+
 
   function getSideChoose(){
-    if(listingPath === 'Листинг' || location.state == 'Листинг') {
+    if(listingPath === 'Список компаний') {
       return <ListingC/>
     }
-    if(listingPath === 'Облигации'  || location.state== 'Облигации') {
+    if(listingPath === 'Облигации') {
       return <Bonds/>
     }
-    if(listingPath === 'Раскрытие информации компаниями' || location.state== 'Раскрытие информации компаниями') {
+    if(listingPath === 'Раскрытие информации компаниями') {
       return <DisclosuresListing/>
     }
-
   }
+
+  
 
   function changeListingPath(el:string){
     setListingPath(el)

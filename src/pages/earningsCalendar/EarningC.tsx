@@ -7,15 +7,15 @@ import Investing from '../home/Investing'
 const EarningC:React.FC = () => {
 
   const [infoHeader, setInfoHaader] = useState([
-    'tim e',
-    'Symbol',
-    'Company Name',
-    'Market Cap', 
-    'Fiscal Quarter Ending',
-    'Consensus EPS* Forecast',
-    '# Of Ests',
-    "Last Year's Report Date",
-    "Last Year's EPS*",
+    'время',
+    'Символ',
+    'Название организации',
+    'Рыночная капитализация',
+    'Окончание финансового квартала',
+    'Консенсусный прогноз на акцию*',
+    '# Эст',
+    "Дата отчета за прошлый год",
+    "Прошлогодняя прибыль на акцию*",
   ])
 
   const [infoValue, setInfoValue] = useState ([

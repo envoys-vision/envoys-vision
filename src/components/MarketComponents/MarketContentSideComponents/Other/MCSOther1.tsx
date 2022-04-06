@@ -17,17 +17,17 @@ const MCSOther1:React.FC = () => {
       <SMTitle2 margin='20px 0'>Рынок цветных металлов и алмазов</SMTitle2>
       <ul style={{paddingLeft: '20px'}}>
         <li><SMPreTtile>Рынок цветных металлов</SMPreTtile></li>
-        <li><SMPreTtile margin='15px 0'>Рынок кредитовния драгоценных металлов</SMPreTtile></li>
-        <li><SMPreTtile>Рынок алмаза и драгоценныз камней</SMPreTtile></li>
+        <li><SMPreTtile margin='15px 0'>Рынок КРЕДИТОВАНИЯ драгоценных металлов</SMPreTtile></li>
+        <li><SMPreTtile>Рынок алмаза и драгоценных камней</SMPreTtile></li>
       </ul>
 
       <Flex direction='column' margin='32px 0 0'>
         <OtherPB><h3>Инфраструктурные партнеры, биржи</h3></OtherPB>
         <OtherPMBWrap>
-          <OtherPMB><span>Депазиторий, клиринговый центр</span></OtherPMB>
+          <OtherPMB><span>Депозитарий, клиринговый центр</span></OtherPMB>
           <OtherPMB><span>Банк</span></OtherPMB>
           <OtherPMB><span>Аффинажное предприятие</span></OtherPMB>
-          <OtherPMB><span>Лаборотория</span></OtherPMB>
+          <OtherPMB><span>Лаборатория</span></OtherPMB>
         </OtherPMBWrap>
       </Flex>
 
@@ -53,7 +53,7 @@ const MCSOther1:React.FC = () => {
         <OtherGridItem>
           <Flex direction='column' align='center'>
             <OtherGridImg src={Icon4}/>
-            <OtherGridText>золото добывающие компании</OtherGridText>
+            <OtherGridText>золотодобывающие компании</OtherGridText>
           </Flex>
         </OtherGridItem>
         <OtherGridItem>
